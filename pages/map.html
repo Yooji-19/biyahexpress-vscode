@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>BiyahExpress | Accessibility Map</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 
   <style>
@@ -24,12 +24,14 @@
       --text: #061d30;
       --muted: #424751;
       --error: #ba1a1a;
+      --header-height: 88px;
     }
 
-    html, body {
-      margin: 0;
-      min-height: 100%;
+    html,
+    body {
       width: 100%;
+      min-height: 100%;
+      margin: 0;
     }
 
     body {
@@ -39,7 +41,8 @@
       padding-bottom: 90px;
     }
 
-    button, input {
+    button,
+    input {
       font-family: inherit;
     }
 
@@ -59,50 +62,99 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* HEADER */
+    /* =========================
+       HEADER
+    ========================= */
 
     .app-header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 64px;
-      background: rgba(248,249,255,0.97);
-      backdrop-filter: blur(14px);
+      height: var(--header-height);
+      padding: 0 20px;
       display: flex;
       align-items: center;
-      padding: 0 16px;
+      gap: 22px;
+      background: rgba(248, 249, 255, 0.98);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
       z-index: 100;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
     }
 
+    /* ORIGINAL BIYAHEXPRESS LOGO */
+
     .logo-icon {
+      width: 35px;
+      height: 46px;
+      overflow: hidden;
       display: flex;
       align-items: center;
-      width: 31px;
-      height: 40px;
-      overflow: hidden;
       flex-shrink: 0;
       text-decoration: none;
     }
 
     .logo-icon img {
-      height: 40px;
       width: auto;
+      height: 46px;
       max-width: none;
       max-height: none;
       flex-shrink: 0;
+      object-fit: contain;
+      object-position: left center;
     }
 
-    /* MAIN */
+    /* BIG TWO-LINE GREETING */
+
+    .map-greeting {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 5px;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .greeting-label {
+      display: block;
+      margin: 0;
+      color: #424751;
+      font-family: "Inter", sans-serif;
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.2px;
+    }
+
+    .greeting-name {
+      display: block;
+      margin: 0;
+      color: #00346a;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 100%;
+    }
+
+    /* =========================
+       MAIN
+    ========================= */
 
     main {
       max-width: 760px;
       margin: 0 auto;
-      padding-top: 76px;
+      padding-top: calc(var(--header-height) + 12px);
     }
 
-    /* SEARCH */
+    /* =========================
+       SEARCH BAR
+    ========================= */
 
     .search-section {
       padding: 8px 16px 12px;
@@ -128,11 +180,11 @@
       padding: 0 59px 0 46px;
       border: 1px solid #e4eaff;
       border-radius: 12px;
-      background: white;
+      background: #ffffff;
       color: var(--text);
       font-size: 13px;
       outline: none;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
     }
 
     .search-input:focus {
@@ -142,18 +194,20 @@
     .filter-btn {
       position: absolute;
       right: 6px;
-      height: 40px;
       width: 40px;
+      height: 40px;
       border: none;
       border-radius: 9px;
-      background: #daeaff;
+      background: var(--surface-high);
       color: var(--primary);
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    /* QUICK FILTERS */
+    /* =========================
+       QUICK FILTERS
+    ========================= */
 
     .quick-filters {
       display: flex;
@@ -176,9 +230,9 @@
       border: 1px solid #e6ebf3;
       border-radius: 25px;
       background: white;
+      color: var(--muted);
       font-size: 11px;
       font-weight: 600;
-      color: var(--muted);
       white-space: nowrap;
       flex-shrink: 0;
     }
@@ -195,7 +249,9 @@
       border-radius: 50%;
     }
 
-    /* MAP CANVAS */
+    /* =========================
+       MAP CANVAS
+    ========================= */
 
     .map-container {
       position: relative;
@@ -213,7 +269,7 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      transform-origin: center center;
+      transform-origin: center;
       transition: transform 0.2s ease;
     }
 
@@ -225,7 +281,9 @@
       pointer-events: none;
     }
 
-    /* MAP CONTROLS */
+    /* =========================
+       MAP CONTROLS
+    ========================= */
 
     .map-controls {
       position: absolute;
@@ -247,7 +305,7 @@
       border-radius: 12px;
       background: white;
       color: var(--primary);
-      box-shadow: 0 3px 12px rgba(0,0,0,0.13);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.13);
     }
 
     .map-control.primary {
@@ -260,7 +318,7 @@
       flex-direction: column;
       border-radius: 12px;
       background: white;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.13);
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.13);
       overflow: hidden;
     }
 
@@ -275,7 +333,9 @@
       background: #e4e7ed;
     }
 
-    /* MAP MARKERS */
+    /* =========================
+       MAP MARKERS
+    ========================= */
 
     .map-marker {
       position: absolute;
@@ -296,9 +356,9 @@
       border-radius: 50%;
       border: 2px solid white;
       display: flex;
-      justify-content: center;
       align-items: center;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.17);
+      justify-content: center;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.17);
     }
 
     .marker-icon .material-symbols-outlined {
@@ -309,12 +369,12 @@
       max-width: 125px;
       padding: 4px 7px;
       border-radius: 20px;
-      background: rgba(255,255,255,0.96);
+      background: rgba(255, 255, 255, 0.96);
       color: var(--text);
       font-size: 10px;
       font-weight: 600;
       white-space: nowrap;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.09);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.09);
     }
 
     .marker-ramp .marker-icon {
@@ -342,7 +402,9 @@
       color: white;
     }
 
-    /* MAP INFORMATION CARD */
+    /* =========================
+       MAP POPUP
+    ========================= */
 
     .map-popup {
       position: absolute;
@@ -351,16 +413,16 @@
       top: 49%;
       transform: translate(-50%, -100%);
       width: min(300px, 85%);
+      padding: 15px;
       background: white;
       border-radius: 17px;
-      padding: 15px;
-      box-shadow: 0 9px 28px rgba(0,0,0,0.2);
+      box-shadow: 0 9px 28px rgba(0, 0, 0, 0.2);
     }
 
     .popup-header {
       display: flex;
       justify-content: space-between;
-      align-items: start;
+      align-items: flex-start;
       gap: 8px;
     }
 
@@ -391,10 +453,10 @@
     }
 
     .popup-description {
+      margin: 0;
       font-size: 12px;
       color: var(--muted);
       line-height: 1.5;
-      margin: 0;
     }
 
     .popup-badges {
@@ -407,10 +469,10 @@
     .popup-badge {
       padding: 6px 9px;
       border-radius: 20px;
-      font-size: 10px;
-      font-weight: 600;
       background: #eef4ff;
       color: #00346a;
+      font-size: 10px;
+      font-weight: 600;
     }
 
     .popup-action {
@@ -444,7 +506,9 @@
       display: none;
     }
 
-    /* LEGEND */
+    /* =========================
+       MAP LEGEND
+    ========================= */
 
     .legend-section {
       padding: 16px;
@@ -452,12 +516,12 @@
     }
 
     .legend-heading {
+      margin: 0 0 12px;
       font-size: 11px;
       text-transform: uppercase;
       font-weight: 700;
       color: var(--muted);
       letter-spacing: 0.03em;
-      margin: 0 0 12px;
     }
 
     .legend-items {
@@ -479,7 +543,7 @@
       padding: 7px 11px;
       border-radius: 24px;
       background: white;
-      box-shadow: 0 2px 7px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 7px rgba(0, 0, 0, 0.05);
       font-size: 11px;
       font-weight: 600;
       white-space: nowrap;
@@ -488,8 +552,6 @@
     .legend-item .material-symbols-outlined {
       font-size: 17px;
     }
-
-    /* REPORT HAZARD */
 
     .report-button {
       width: 100%;
@@ -509,13 +571,15 @@
     }
 
     .prototype-note {
+      margin: 12px 0 0;
       font-size: 10px;
       color: #737782;
-      margin: 12px 0 0;
       text-align: center;
     }
 
-    /* BOTTOM NAVIGATION */
+    /* =========================
+       BOTTOM NAVIGATION
+    ========================= */
 
     .bottom-nav {
       position: fixed;
@@ -524,9 +588,9 @@
       width: 100%;
       min-height: 76px;
       padding-bottom: env(safe-area-inset-bottom, 0px);
-      background: rgba(248,249,255,0.97);
+      background: rgba(248, 249, 255, 0.97);
       backdrop-filter: blur(16px);
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.06);
+      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.06);
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -539,13 +603,13 @@
       min-height: 62px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       gap: 5px;
       color: var(--muted);
       font-size: 11px;
-      text-decoration: none;
       font-weight: 500;
+      text-decoration: none;
     }
 
     .nav-pill {
@@ -567,16 +631,30 @@
       color: white;
     }
 
-    .nav-link:focus-visible,
     button:focus-visible,
-    .logo-icon:focus-visible {
+    a:focus-visible {
       outline: 3px solid #54a0fe;
       outline-offset: 2px;
     }
 
-    /* MOBILE */
+    /* =========================
+       SMALL MOBILE SCREENS
+    ========================= */
 
     @media (max-width: 360px) {
+      .app-header {
+        gap: 16px;
+        padding: 0 14px;
+      }
+
+      .greeting-label {
+        font-size: 15px;
+      }
+
+      .greeting-name {
+        font-size: 21px;
+      }
+
       .search-section {
         padding-left: 12px;
         padding-right: 12px;
@@ -603,9 +681,12 @@
 
 <body>
 
-  <!-- HEADER WITH CLICKABLE LOGO -->
+  <!-- =========================
+       HEADER AND GREETING
+  ========================= -->
 
   <header class="app-header">
+
     <a
       href="/pages/map.html"
       class="logo-icon"
@@ -617,15 +698,26 @@
         alt="BiyahExpress Logo"
       >
     </a>
+
+    <div class="map-greeting">
+      <span class="greeting-label">Good Day,</span>
+      <span class="greeting-name" id="headerUserName">
+        Maria Santos
+      </span>
+    </div>
+
   </header>
 
   <main>
 
-    <!-- SEARCH BAR AND FILTERS -->
+    <!-- =========================
+         SEARCH
+    ========================= -->
 
     <section class="search-section">
 
       <div class="search-wrapper">
+
         <span class="material-symbols-outlined search-icon">
           search
         </span>
@@ -647,6 +739,7 @@
         >
           <span class="material-symbols-outlined">tune</span>
         </button>
+
       </div>
 
       <div class="quick-filters" id="quickFilters">
@@ -662,52 +755,42 @@
           All Layers
         </button>
 
-        <button
-          type="button"
-          class="filter-chip"
-          data-filter="ramp"
-        >
+        <button type="button" class="filter-chip" data-filter="ramp">
           <span class="filter-dot" style="background:#27ae60"></span>
           Ramps
         </button>
 
-        <button
-          type="button"
-          class="filter-chip"
-          data-filter="elevator"
-        >
+        <button type="button" class="filter-chip" data-filter="elevator">
           <span class="filter-dot" style="background:#005faf"></span>
           Elevators
         </button>
 
-        <button
-          type="button"
-          class="filter-chip"
-          data-filter="tactile"
-        >
+        <button type="button" class="filter-chip" data-filter="tactile">
           <span class="filter-dot" style="background:#451a7d"></span>
           Tactile Paving
         </button>
 
-        <button
-          type="button"
-          class="filter-chip"
-          data-filter="hazard"
-        >
+        <button type="button" class="filter-chip" data-filter="hazard">
           <span class="filter-dot" style="background:#ba1a1a"></span>
           Hazards
         </button>
 
       </div>
+
     </section>
 
-    <!-- ACCESSIBILITY MAP -->
+    <!-- =========================
+         MAP CANVAS
+    ========================= -->
 
-    <section class="map-container" aria-label="Illustrative accessibility map of Manila">
+    <section
+      class="map-container"
+      aria-label="Illustrative accessibility map of Manila"
+    >
 
       <div class="map-background" id="mapBackground"></div>
 
-      <!-- MAP ROUTES -->
+      <!-- MAP ROUTE OVERLAY -->
 
       <svg
         class="map-overlay"
@@ -727,33 +810,10 @@
           </filter>
         </defs>
 
-        <path
-          d="M120 0 L260 580"
-          stroke="#cbd5e1"
-          stroke-width="17"
-          opacity=".6"
-        />
-
-        <path
-          d="M0 160 L400 130"
-          stroke="#cbd5e1"
-          stroke-width="12"
-          opacity=".6"
-        />
-
-        <path
-          d="M0 310 L400 280"
-          stroke="#cbd5e1"
-          stroke-width="14"
-          opacity=".6"
-        />
-
-        <path
-          d="M0 460 L400 430"
-          stroke="#cbd5e1"
-          stroke-width="10"
-          opacity=".6"
-        />
+        <path d="M120 0 L260 580" stroke="#cbd5e1" stroke-width="17" opacity=".6"/>
+        <path d="M0 160 L400 130" stroke="#cbd5e1" stroke-width="12" opacity=".6"/>
+        <path d="M0 310 L400 280" stroke="#cbd5e1" stroke-width="14" opacity=".6"/>
+        <path d="M0 460 L400 430" stroke="#cbd5e1" stroke-width="10" opacity=".6"/>
 
         <path
           d="M120 0 L260 580"
@@ -790,11 +850,16 @@
         />
       </svg>
 
-      <!-- MAP BUTTONS -->
+      <!-- MAP CONTROLS -->
 
       <div class="map-controls">
 
-        <button class="map-control" type="button" title="North">
+        <button
+          class="map-control"
+          type="button"
+          title="North"
+          aria-label="Map north indicator"
+        >
           <span class="material-symbols-outlined" style="color:#ba1a1a">
             explore
           </span>
@@ -848,7 +913,7 @@
 
       </div>
 
-      <!-- RAMP MARKER -->
+      <!-- ACCESSIBILITY MARKERS -->
 
       <button
         type="button"
@@ -864,8 +929,6 @@
         <span class="marker-label">PGH Gate 2</span>
       </button>
 
-      <!-- ELEVATOR MARKER -->
-
       <button
         type="button"
         class="map-marker marker-elevator"
@@ -879,8 +942,6 @@
         </span>
         <span class="marker-label">UN Station</span>
       </button>
-
-      <!-- TACTILE PAVING -->
 
       <button
         type="button"
@@ -896,8 +957,6 @@
         <span class="marker-label">Faura Audible</span>
       </button>
 
-      <!-- HAZARD -->
-
       <button
         type="button"
         class="map-marker marker-hazard"
@@ -911,8 +970,6 @@
         </span>
         <span class="marker-label">Broken Walkway</span>
       </button>
-
-      <!-- ELEVATOR TWO -->
 
       <button
         type="button"
@@ -928,7 +985,7 @@
         <span class="marker-label">Quirino Lift</span>
       </button>
 
-      <!-- MAP POPUP -->
+      <!-- MAP LOCATION POPUP -->
 
       <div class="map-popup" id="mapPopup">
 
@@ -967,7 +1024,11 @@
           <span class="popup-badge">Manila</span>
         </div>
 
-        <button class="popup-action" type="button" id="navigateHereBtn">
+        <button
+          class="popup-action"
+          type="button"
+          id="navigateHereBtn"
+        >
           <span class="material-symbols-outlined" style="font-size:18px">
             directions_walk
           </span>
@@ -978,7 +1039,9 @@
 
     </section>
 
-    <!-- MAP LEGEND -->
+    <!-- =========================
+         MAP LEGEND
+    ========================= -->
 
     <section class="legend-section">
 
@@ -1023,8 +1086,6 @@
 
       </div>
 
-      <!-- REPORT BUTTON -->
-
       <a href="/pages/report.html" class="report-button">
         <span class="material-symbols-outlined">
           report_problem
@@ -1040,11 +1101,11 @@
 
   </main>
 
-  <!-- FIXED BOTTOM NAVIGATION -->
+  <!-- =========================
+       BOTTOM NAVIGATION
+  ========================= -->
 
   <nav class="bottom-nav" aria-label="Main navigation">
-
-    <!-- MAP -->
 
     <a
       href="/pages/map.html"
@@ -1058,8 +1119,6 @@
       <span>Map</span>
     </a>
 
-    <!-- REPORTS -->
-
     <a
       href="/pages/report.html"
       class="nav-link"
@@ -1071,8 +1130,6 @@
       <span>Reports</span>
     </a>
 
-    <!-- SETTINGS -->
-
     <a
       href="/pages/settings.html"
       class="nav-link"
@@ -1083,8 +1140,6 @@
       </span>
       <span>Settings</span>
     </a>
-
-    <!-- MORE / PROFILE -->
 
     <a
       href="/pages/preferences.html"
@@ -1099,22 +1154,33 @@
 
   </nav>
 
-  <!-- INTERACTIONS -->
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
 
   <script>
-    // ELEMENTS
+    // USER GREETING
+
+    const headerUserName = document.getElementById("headerUserName");
+
+    try {
+      const savedName = localStorage.getItem("biyahexpressUserName");
+
+      if (savedName && savedName.trim()) {
+        headerUserName.textContent = savedName.trim();
+      }
+    } catch (error) {
+      console.warn("Could not load saved username.", error);
+    }
+
+    // MAP ELEMENTS
 
     const searchInput = document.getElementById("mapSearchInput");
     const filterToggleBtn = document.getElementById("filterToggleBtn");
     const quickFilters = document.getElementById("quickFilters");
 
-    const filterButtons = document.querySelectorAll(
-      ".filter-chip"
-    );
-
-    const mapMarkers = document.querySelectorAll(
-      ".map-marker"
-    );
+    const filterButtons = document.querySelectorAll(".filter-chip");
+    const mapMarkers = document.querySelectorAll(".map-marker");
 
     const mapPopup = document.getElementById("mapPopup");
     const popupTitle = document.getElementById("popupTitle");
@@ -1126,14 +1192,11 @@
     let activeFilter = "all";
     let zoomLevel = 1;
 
-    // OPEN LOCATION DETAILS
+    // OPEN MARKER DETAILS
 
     function openMarker(marker) {
       popupTitle.textContent = marker.dataset.title;
-
-      popupDescription.textContent =
-        marker.dataset.description;
-
+      popupDescription.textContent = marker.dataset.description;
       mapPopup.classList.remove("hidden");
     }
 
@@ -1152,23 +1215,21 @@
     // FILTER MARKERS
 
     function updateMarkers() {
-      const searchTerm = searchInput.value
-        .trim()
-        .toLowerCase();
+      const searchTerm = searchInput.value.trim().toLowerCase();
 
       mapMarkers.forEach(marker => {
         const matchesFilter =
           activeFilter === "all" ||
           marker.dataset.type === activeFilter;
 
-        const searchText = [
+        const searchableText = [
           marker.dataset.title,
           marker.dataset.description,
           marker.textContent
         ].join(" ").toLowerCase();
 
         const matchesSearch =
-          !searchTerm || searchText.includes(searchTerm);
+          !searchTerm || searchableText.includes(searchTerm);
 
         marker.style.display =
           matchesFilter && matchesSearch ? "flex" : "none";
@@ -1180,10 +1241,7 @@
         activeFilter = button.dataset.filter;
 
         filterButtons.forEach(item => {
-          item.classList.toggle(
-            "active",
-            item === button
-          );
+          item.classList.toggle("active", item === button);
         });
 
         mapPopup.classList.add("hidden");
@@ -1191,14 +1249,14 @@
       });
     });
 
-    // SEARCH LOCATION LABELS
+    // SEARCH
 
     searchInput.addEventListener("input", () => {
       mapPopup.classList.add("hidden");
       updateMarkers();
     });
 
-    // SHOW/HIDE FILTERS
+    // TOGGLE QUICK FILTER BAR
 
     filterToggleBtn.addEventListener("click", () => {
       const isHidden = quickFilters.style.display === "none";
@@ -1211,69 +1269,62 @@
       );
     });
 
-    // BACKGROUND ZOOM
-    // Demonstration-only zoom, not a live map engine
+    // DEMONSTRATION MAP ZOOM
 
     function updateZoom() {
-      mapBackground.style.transform =
-        `scale(${zoomLevel})`;
+      mapBackground.style.transform = `scale(${zoomLevel})`;
     }
 
-    document.getElementById("zoomInBtn")
-      .addEventListener("click", () => {
-        zoomLevel = Math.min(2, zoomLevel + 0.2);
-        updateZoom();
+    document.getElementById("zoomInBtn").addEventListener("click", () => {
+      zoomLevel = Math.min(2, zoomLevel + 0.2);
+      updateZoom();
+    });
+
+    document.getElementById("zoomOutBtn").addEventListener("click", () => {
+      zoomLevel = Math.max(1, zoomLevel - 0.2);
+      updateZoom();
+    });
+
+    // RESET MAP
+
+    document.getElementById("recenterBtn").addEventListener("click", () => {
+      zoomLevel = 1;
+      updateZoom();
+
+      searchInput.value = "";
+      activeFilter = "all";
+
+      filterButtons.forEach(button => {
+        button.classList.toggle(
+          "active",
+          button.dataset.filter === "all"
+        );
       });
 
-    document.getElementById("zoomOutBtn")
-      .addEventListener("click", () => {
-        zoomLevel = Math.max(1, zoomLevel - 0.2);
-        updateZoom();
-      });
+      mapPopup.classList.add("hidden");
+      updateMarkers();
+    });
 
-    // RESET VIEW
-
-    document.getElementById("recenterBtn")
-      .addEventListener("click", () => {
-        zoomLevel = 1;
-        updateZoom();
-
-        searchInput.value = "";
-        activeFilter = "all";
-
-        filterButtons.forEach(button => {
-          button.classList.toggle(
-            "active",
-            button.dataset.filter === "all"
-          );
-        });
-
-        mapPopup.classList.add("hidden");
-        updateMarkers();
-      });
-
-    // BACKGROUND APPEARANCE
+    // MAP BACKGROUND APPEARANCE
 
     let alternateBackground = false;
 
-    document.getElementById("satelliteBtn")
-      .addEventListener("click", () => {
-        alternateBackground = !alternateBackground;
+    document.getElementById("satelliteBtn").addEventListener("click", () => {
+      alternateBackground = !alternateBackground;
 
-        mapBackground.style.filter =
-          alternateBackground
-            ? "contrast(1.15) saturate(0.65)"
-            : "none";
-      });
+      mapBackground.style.filter = alternateBackground
+        ? "contrast(1.15) saturate(0.65)"
+        : "none";
+    });
 
-    // ROUTE PLANNER LINK
+    // GO TO ROUTE PLANNER
 
-    document.getElementById("navigateHereBtn")
-      .addEventListener("click", () => {
-        window.location.href = "/pages/planner.html";
-      });
+    document.getElementById("navigateHereBtn").addEventListener("click", () => {
+      window.location.href = "/pages/planner.html";
+    });
 
-    // Restore an empty search and show all markers.
+    // INITIALIZE
+
     updateMarkers();
   </script>
 
