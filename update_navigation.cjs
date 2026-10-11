@@ -4,54 +4,118 @@ const path = require("path");
 
 const pagesFolder = path.join(__dirname, "pages");
 
-const settingsLink = `
-<a
-  href="/pages/settings.html"
-  class="flex flex-col items-center justify-center w-16 min-h-[48px] py-1 text-on-surface-variant"
-  data-path="settings"
->
-  <div class="nav-pill w-14 h-8 flex items-center justify-center rounded-full">
-    <span class="material-symbols-outlined text-[24px]">settings</span>
-  </div>
-  <span class="nav-label text-[11px] mt-1">Settings</span>
-</a>`;
+const applyChanges = process.argv.includes("--apply");
+
+const routes = {
+  "spatial-map": "/pages/map.html",
+  "hazard-reports": "/pages/report.html",
+  "settings": "/pages/settings.html",
+  "user-profile": "/pages/preferences.html",
+  "dashboard": "/pages/map.html"
+};
+
+console.log(
+  applyChanges
+    ? "APPLY MODE: Updating navigation links"
+    : "PREVIEW MODE: No files will be modified"
+);
+
+if (!fs.existsSync(pagesFolder)) {
+  console.error("Pages folder not found.");
+  process.exit(1);
+}
 
 const files = fs.readdirSync(pagesFolder)
   .filter(file => file.endsWith(".html"));
 
+let totalChanges = 0;
+
 for (const file of files) {
   const filePath = path.join(pagesFolder, file);
-  let html = fs.readFileSync(filePath, "utf8");
+  const original = fs.readFileSync(filePath, "utf8");
 
-  // Avoid adding Settings twice
-  if (html.includes('href="/pages/settings.html"')) {
-    console.log(`Already has Settings: ${file}`);
-    continue;
-  }
+  let fileChanges = 0;
 
-  const navMatch = html.match(/<nav\b[^>]*>[\s\S]*?<\/nav>/i);
+  /*
+    Change href only on navigation links
+    with known data-path values.
 
-  if (!navMatch) {
-    console.log(`Skipped: ${file} (no navigation found)`);
-    continue;
-  }
+    Preserve classes, icons, text and structure.
+  */
 
-  // Add Settings before the end of navigation
-  const updatedNav = navMatch[0].replace(
-    "</nav>",
-    settingsLink + "\n</nav>"
+  const updated = original.replace(
+    /<a\b[^>]*>[\s\S]*?<\/a>/gi,
+    anchor => {
+      const match = anchor.match(
+        /\bdata-path=["']([^"']+)["']/i
+      );
+
+      if (!match) return anchor;
+
+      const page = match[1];
+      const destination = routes[page];
+
+      if (!destination) return anchor;
+
+      const openingTagMatch = anchor.match(/^<a\b[^>]*>/i);
+
+      if (!openingTagMatch) return anchor;
+
+      const openingTag = openingTagMatch[0];
+
+      let updatedTag;
+
+      if (/\bhref=["'][^"']*["']/i.test(openingTag)) {
+        updatedTag = openingTag.replace(
+          /\bhref=["'][^"']*["']/i,
+          `href="${destination}"`
+        );
+      } else {
+        updatedTag = openingTag.replace(
+          /^<a\b/i,
+          `<a href="${destination}"`
+        );
+      }
+
+      if (openingTag === updatedTag) {
+        return anchor;
+      }
+
+      fileChanges++;
+
+      return updatedTag + anchor.slice(openingTag.length);
+    }
   );
 
-  // Backup original file
-  if (!fs.existsSync(filePath + ".bak")) {
-    fs.copyFileSync(filePath, filePath + ".bak");
+  if (fileChanges === 0) {
+    console.log(`OK: ${file}`);
+    continue;
   }
 
-  html = html.replace(navMatch[0], updatedNav);
+  totalChanges += fileChanges;
 
-  fs.writeFileSync(filePath, html, "utf8");
+  console.log(
+    `${applyChanges ? "Updated" : "Would update"}: ` +
+    `${file} (${fileChanges} links)`
+  );
 
-  console.log(`Settings added: ${file}`);
+  if (applyChanges) {
+    const backup = filePath + ".nav-backup";
+
+    if (!fs.existsSync(backup)) {
+      fs.copyFileSync(filePath, backup);
+    }
+
+    fs.writeFileSync(filePath, updated, "utf8");
+  }
 }
 
-console.log("Navigation update complete!");
+console.log("");
+console.log("Total navigation links:", totalChanges);
+
+if (!applyChanges) {
+  console.log("Preview complete. No files were changed.");
+  console.log("Run with --apply to make the changes.");
+} else {
+  console.log("Navigation update complete.");
+}
