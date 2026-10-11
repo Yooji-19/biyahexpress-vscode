@@ -5,56 +5,74 @@
     }
   </style>
   
-<style id="biyahexpress-header-style">
+
+
+
+<style id="fixed-biyahexpress-header">
   .app-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 64px;
-    background: #f8f9ff;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-    z-index: 50;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 64px !important;
+    padding: 0 16px !important;
+    background: #f8f9ff !important;
+    display: flex !important;
+    align-items: center !important;
+    z-index: 100 !important;
     box-shadow: 0 1px 5px rgba(0,0,0,0.05);
   }
 
-  .logo-icon {
-    width: 31px;
-    height: 40px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
+  .app-header .logo-icon {
+    display: flex !important;
+    align-items: center !important;
+    width: 31px !important;
+    height: 40px !important;
+    overflow: hidden !important;
+    flex-shrink: 0;
+    cursor: pointer;
   }
 
-  .logo-icon img {
-    height: 40px;
-    width: auto;
-    max-width: none;
-    max-height: none;
+  .app-header .logo-icon img {
+    height: 40px !important;
+    width: auto !important;
+    max-width: none !important;
+    max-height: none !important;
     flex-shrink: 0;
   }
 
-  main {
-    padding-top: 80px !important;
+  .app-header .logo-icon:focus-visible {
+    outline: 3px solid #295ea6;
+    outline-offset: 4px;
+  }
+
+  body {
+    padding-top: 64px !important;
+  }
+
+  body > main {
+    padding-top: 16px !important;
   }
 </style>
 
 </head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen">
 
 
+
 <header class="app-header">
   <a
-    href="/pages/dashboard.html"
+    href="/pages/map.html"
     class="logo-icon"
-    aria-label="Go to Home Dashboard"
-    title="Go to Home"
-    style="cursor: pointer;"
+    aria-label="Return to Accessibility Map"
+    title="Back to Map"
   >
-    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0irbVQFRFnVFnpIWttaOR3NEfx-1gy4VJKx5FMJcM6rZtxl2qcUXqv3SgFxMr5sg4vDBzoNeTIb1Mko1W3SzQHyA4DW6Na-pi-hkgzGGEyzFU-Kag3XS-d8McE5E3Qjnev758UmH7e_q-RK8sjsqJqc3Vqrt3QFGQxYcSmcLXxOEcBErcwhgm1Ss16N1sx2H3iRfsYDbKuItVR72RIQtKowhhjMZ_WhbknJ7Fx--tUDtoww8twWY27VyczShyvyeEIlA" alt="BiyahExpress Logo">
+    <img
+      src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpt6VD6taaf8BllkliQ4wCRtIlg8m3K6_LA0paWwaTO3_YMCEfmQFTYZpDAsavNExqLfLKz_zJr3l-EWOiLf8PxypBh5vaw894L6Z93H1FK4DqaGhEzLCUVbgllEmmRtwzEyYxB3TZ-ODD36leP-IKsUEgEkTJ78T3JODT4_VdkM44Z35rfCD83s_RfVdJZYw5A5hGThuZbcVnGaS_ofX5SUeaP2LgONrgj7YcVeZlcAuiDlXTufQ1mb98iBl9cb57L00"
+      alt="BiyahExpress Logo"
+    >
   </a>
-</header><main class="flex-1 w-full bg-surface pt-24"><div class="flex flex-col w-full pb-safe">
+</header>
+<main class="flex-1 w-full bg-surface pt-24"><div class="flex flex-col w-full pb-safe">
 <!-- Sub-Header Route Quick Actions Bar -->
 <div class="px-space-md py-space-sm bg-surface-container flex items-center justify-between shadow-sm">
 <div class="flex items-center gap-space-xs text-primary">

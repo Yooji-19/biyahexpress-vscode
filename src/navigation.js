@@ -3,7 +3,6 @@
 const pages = [
   ['welcome', 'Welcome / Login'],
   ['preferences', 'Accessibility Preferences'],
-  ['dashboard', 'Home Dashboard'],
   ['planner', 'Route Planner'],
   ['route', 'Route Details'],
   ['report', 'Report Hazard'],
@@ -23,23 +22,23 @@ document.addEventListener('click', (event) => {
   const text = (target.textContent || '').replace(/\s+/g, ' ').trim().toLowerCase();
   const href = target.getAttribute('href');
   let destination = null;
-  if (/log in|create account|continue as guest/.test(text) && current === 'welcome') destination = 'preferences';
-  else if (/save preferences/.test(text)) destination = 'dashboard';
+  if (/log in|create account|continue as guest/.test(text) && current === 'welcome') destination = 'map';
+  else if (/save preferences/.test(text)) destination = 'map';
   else if (/view routes|start navigation/.test(text) && current === 'planner') destination = 'route';
   else if (/submit hazard report/.test(text)) destination = 'confirmation';
-  else if (/back to home dashboard/.test(text)) destination = 'dashboard';
+  else if (/back to home dashboard/.test(text)) destination = 'map';
   else if (/view report status/.test(text)) destination = 'confirmation';
   else if (/analytical breakdown/.test(text)) destination = 'analytics';
   else if (/report hazard at current pin/.test(text)) destination = 'report';
   else if (/navigate here/.test(text)) destination = 'planner';
   else if (target.tagName === 'A' && href === '#') {
-    if (/home/.test(text)) destination = 'dashboard';
+    if (/home/.test(text)) destination = 'map';
     else if (/map/.test(text)) destination = 'map';
     else if (/reports/.test(text)) destination = 'report';
-    else if (/more/.test(text)) destination = 'preferences';
+    else if (/more/.test(text)) destination = 'map';
   }
   if (/arrow_back/.test(text) && target.tagName === 'BUTTON') {
-    destination = ({ planner: 'dashboard', route: 'planner', report: 'dashboard', heatmap: 'map' })[current] || null;
+    destination = ({ planner: 'map', route: 'planner', report: 'map', heatmap: 'map' })[current] || null;
   }
   if (destination) { event.preventDefault(); go(destination); }
 });
