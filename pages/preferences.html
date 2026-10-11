@@ -2,877 +2,587 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BiyahExpress | User Profile</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BiyahExpress | Profile</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: "#00346a",
-            primaryContainer: "#064a91",
-            surface: "#f8f9ff",
-            surfaceLow: "#eef4ff",
-            surfaceHigh: "#daeaff",
-            onSurface: "#061d30",
-            muted: "#424751"
-          },
-          fontFamily: {
-            body: ["Inter", "sans-serif"],
-            heading: ["Plus Jakarta Sans", "sans-serif"]
-          }
-        }
-      }
-    };
-  </script>
+<style>
+* {
+  box-sizing: border-box;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+body {
+  margin: 0;
+  background: #f8f9ff;
+  color: #061d30;
+  font-family: "Inter", sans-serif;
+}
 
-    body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      background: #f8f9ff;
-      color: #061d30;
-    }
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  display: inline-block;
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
 
-    .material-symbols-outlined {
-      font-family: "Material Symbols Outlined";
-      font-weight: normal;
-      font-style: normal;
-      font-size: 24px;
-      line-height: 1;
-      display: inline-block;
-      white-space: nowrap;
-      font-feature-settings: "liga";
-      -webkit-font-smoothing: antialiased;
-    }
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 64px;
+  background: #f8f9ff;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 50;
+  box-shadow: 0 1px 5px #0000000d;
+}
 
-    /* Header with logo icon only */
+.logo-icon {
+  display: flex;
+  align-items: center;
+  width: 31px;
+  height: 40px;
+  overflow: hidden;
+  cursor: pointer;
+}
 
-    .app-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 64px;
-      background: rgba(248, 249, 255, 0.97);
-      backdrop-filter: blur(16px);
-      display: flex;
-      align-items: center;
-      padding: 0 16px;
-      z-index: 50;
-      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.04);
-    }
+.logo-icon img {
+  height: 40px;
+  width: auto;
+  max-width: none;
+  flex-shrink: 0;
+}
 
-    .logo-icon {
-      width: 31px;
-      height: 40px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      flex-shrink: 0;
-    }
+main {
+  padding: 82px 16px 110px;
+  max-width: 760px;
+  margin: auto;
+}
 
-    .logo-icon img {
-      height: 40px;
-      width: auto;
-      max-width: none;
-      object-fit: contain;
-      object-position: left center;
-    }
+h1, h2 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
 
-    /* Section headings */
+h1 {
+  font-size: 25px;
+  margin: 0 0 8px;
+}
 
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-family: "Plus Jakarta Sans", sans-serif;
-      font-size: 18px;
-      font-weight: 600;
-    }
+h2 {
+  font-size: 17px;
+  margin: 0 0 12px;
+}
 
-    .section-title .material-symbols-outlined {
-      color: #00346a;
-    }
+.subtitle {
+  font-size: 13px;
+  color: #424751;
+  margin: 0;
+}
 
-    /* Accessibility cards */
+.section {
+  margin-top: 24px;
+}
 
-    .mobility-option {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      width: 100%;
-      padding: 16px;
-      border-radius: 12px;
-      background: white;
-      cursor: pointer;
-      border: 1px solid transparent;
-      transition: background 0.2s, border-color 0.2s;
-    }
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: white;
+  border-radius: 15px;
+  padding: 16px;
+  box-shadow: 0 2px 9px #00000008;
+}
 
-    .mobility-option[data-selected="true"] {
-      background: #eef4ff;
-      border-color: #a9c7ff;
-    }
+.avatar {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #daeaff;
+  color: #00346a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .mobility-option:focus-visible,
-    .toggle-control:focus-visible {
-      outline: 3px solid #54a0fe;
-      outline-offset: 2px;
-    }
+.profile-name {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0;
+}
 
-    .mobility-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: #daeaff;
-      color: #00346a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
+.profile-role {
+  font-size: 12px;
+  color: #424751;
+  margin: 5px 0 0;
+}
 
-    .mobility-title {
-      font-weight: 600;
-      font-size: 14px;
-    }
+/* MAYA STYLE ACCESSIBILITY TILES */
 
-    .mobility-desc {
-      color: #424751;
-      font-size: 12px;
-      margin-top: 4px;
-    }
+.needs-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 10px 5px;
+  background: white;
+  border: 1px solid #e7eaf0;
+  padding: 12px 7px;
+  border-radius: 15px;
+}
 
-    .check-indicator {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: #e4efff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: transparent;
-      flex-shrink: 0;
-    }
+.mobility-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: 0;
+  border-radius: 10px;
+  padding: 4px 2px;
+  cursor: pointer;
+  color: #424751;
+  font-family: inherit;
+  min-width: 0;
+}
 
-    .mobility-option[data-selected="true"] .check-indicator {
-      background: #064a91;
-      color: white;
-    }
+.mobility-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #f4f5f6;
+  border: 1px solid #e5e7eb;
+  color: #00346a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    /* Settings */
+.mobility-icon span {
+  font-size: 23px;
+}
 
-    .setting-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 15px 0;
-    }
+.mobility-title {
+  font-size: 10px;
+  line-height: 1.3;
+  font-weight: 500;
+  max-width: 88px;
+  text-align: center;
+}
 
-    .setting-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: #eef4ff;
-      color: #00346a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
+.mobility-option[aria-checked="true"] .mobility-icon {
+  background: #e5f0ff;
+  border: 2px solid #295ea6;
+}
 
-    .setting-name {
-      font-size: 14px;
-      font-weight: 600;
-    }
+.mobility-option[aria-checked="true"] .mobility-title {
+  color: #00346a;
+  font-weight: 700;
+}
 
-    .setting-description {
-      font-size: 11px;
-      color: #424751;
-      margin-top: 3px;
-    }
+.mobility-option:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #54a0fe;
+  outline-offset: 2px;
+}
 
-    .toggle-control {
-      width: 56px;
-      height: 32px;
-      padding: 4px;
-      background: #064a91;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      flex-shrink: 0;
-      transition: background 0.2s;
-    }
+.info-card {
+  background: #daeaff;
+  border-radius: 14px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
 
-    .toggle-control span {
-      display: block;
-      width: 24px;
-      height: 24px;
-      background: white;
-      border-radius: 50%;
-      transform: translateX(24px);
-      transition: transform 0.2s;
-    }
+.info-icon {
+  background: white;
+  color: #00346a;
+  height: 44px;
+  width: 44px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .toggle-control[aria-checked="false"] {
-      background: #d0e4ff;
-    }
+.info-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 5px;
+}
 
-    .toggle-control[aria-checked="false"] span {
-      transform: translateX(0);
-    }
+.info-description {
+  font-size: 11px;
+  color: #424751;
+  margin: 0;
+  line-height: 1.5;
+}
 
-    /* Accessibility display modes */
+.save-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 24px;
+  height: 48px;
+  background: #064a91;
+  color: white;
+  font-family: inherit;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
-    .large-text .mobility-title,
-    .large-text .setting-name {
-      font-size: 18px;
-    }
+.save-btn:hover {
+  background: #00346a;
+}
 
-    .large-text .mobility-desc,
-    .large-text .setting-description {
-      font-size: 15px;
-    }
+.save-note {
+  font-size: 11px;
+  text-align: center;
+  color: #737782;
+}
 
-    .high-contrast {
-      background: white;
-      color: #001b3d;
-    }
+.toast {
+  position: fixed;
+  bottom: 92px;
+  left: 50%;
+  transform: translateX(-50%) translateY(15px);
+  background: #1e3246;
+  color: white;
+  padding: 13px 18px;
+  border-radius: 12px;
+  width: max-content;
+  max-width: 90vw;
+  text-align: center;
+  font-size: 13px;
+  opacity: 0;
+  pointer-events: none;
+  transition: .25s;
+  z-index: 60;
+}
 
-    .high-contrast .mobility-option,
-    .high-contrast .settings-card {
-      border: 2px solid #00346a;
-    }
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
 
-    /* Bottom navigation */
+/* NAVIGATION */
 
-    .nav-link {
-      color: #424751;
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-      min-width: 65px;
-      font-size: 11px;
-    }
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 75px;
+  background: #f8f9ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0 -2px 10px #00000008;
+  z-index: 40;
+}
 
-    .nav-link.active {
-      color: #00346a;
-      font-weight: 700;
-    }
+.nav-link {
+  color: #424751;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  flex: 1;
+  font-size: 10px;
+}
 
-    .nav-link.active .nav-icon {
-      background: #064a91;
-      color: white;
-    }
+.nav-icon {
+  height: 30px;
+  width: 52px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    .nav-icon {
-      width: 64px;
-      height: 34px;
-      border-radius: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.nav-link.active {
+  color: #00346a;
+  font-weight: 700;
+}
 
-    /* Save confirmation */
-
-    #toastIndicator {
-      opacity: 0;
-      pointer-events: none;
-      transform: translate(-50%, 20px);
-      transition: 0.3s;
-    }
-
-    #toastIndicator.show {
-      opacity: 1;
-      transform: translate(-50%, 0);
-    }
-  </style>
-
-<style id="biyahexpress-header-style">
-  .app-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 64px;
-    background: #f8f9ff;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-    z-index: 50;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-  }
-
-  .logo-icon {
-    width: 31px;
-    height: 40px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-  }
-
-  .logo-icon img {
-    height: 40px;
-    width: auto;
-    max-width: none;
-    max-height: none;
-    flex-shrink: 0;
-  }
-
-  main {
-    padding-top: 80px !important;
-  }
+.nav-link.active .nav-icon {
+  background: #064a91;
+  color: white;
+}
 </style>
-
 </head>
 
 <body>
 
-  <!-- HEADER: LOGO ICON ONLY -->
+<!-- HEADER -->
 
-  
-
-
-<header class="app-header">
-  <a
-    href="/pages/dashboard.html"
-    class="logo-icon"
-    aria-label="Go to Home Dashboard"
-    title="Go to Home"
-    style="cursor: pointer;"
-  >
-    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpt6VD6taaf8BllkliQ4wCRtIlg8m3K6_LA0paWwaTO3_YMCEfmQFTYZpDAsavNExqLfLKz_zJr3l-EWOiLf8PxypBh5vaw894L6Z93H1FK4DqaGhEzLCUVbgllEmmRtwzEyYxB3TZ-ODD36leP-IKsUEgEkTJ78T3JODT4_VdkM44Z35rfCD83s_RfVdJZYw5A5hGThuZbcVnGaS_ofX5SUeaP2LgONrgj7YcVeZlcAuiDlXTufQ1mb98iBl9cb57L00" alt="BiyahExpress Logo">
+<header>
+  <a href="/pages/dashboard.html" class="logo-icon"
+     aria-label="Go to Home Dashboard">
+    <img
+      src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpt6VD6taaf8BllkliQ4wCRtIlg8m3K6_LA0paWwaTO3_YMCEfmQFTYZpDAsavNExqLfLKz_zJr3l-EWOiLf8PxypBh5vaw894L6Z93H1FK4DqaGhEzLCUVbgllEmmRtwzEyYxB3TZ-ODD36leP-IKsUEgEkTJ78T3JODT4_VdkM44Z35rfCD83s_RfVdJZYw5A5hGThuZbcVnGaS_ofX5SUeaP2LgONrgj7YcVeZlcAuiDlXTufQ1mb98iBl9cb57L00"
+      alt="BiyahExpress Logo">
   </a>
 </header>
 
-  <!-- MAIN CONTENT -->
+<main>
 
-  <main class="pt-20 pb-28 px-4 max-w-3xl mx-auto space-y-6">
+  <section>
+    <h1>Your Profile</h1>
+    <p class="subtitle">
+      Tailor route calculation to your mobility needs.
+    </p>
+  </section>
 
-    <!-- PAGE TITLE -->
+  <!-- PROFILE CARD -->
 
-    <section>
-      <div class="flex items-center justify-between gap-2">
-        <h1 class="font-heading text-[26px] font-bold flex items-center gap-2">
-          <span class="material-symbols-outlined text-primary">tune</span>
-          Your Profile
-        </h1>
-
-        <span class="text-[11px] font-semibold text-primary bg-surfaceHigh px-3 py-2 rounded-full flex items-center gap-1">
-          <span class="material-symbols-outlined text-[15px]">bolt</span>
-          Active Engine
+  <section class="section">
+    <div class="profile-card">
+      <div class="avatar">
+        <span class="material-symbols-outlined" style="font-size:32px">
+          person
         </span>
       </div>
-
-      <p class="text-sm text-muted mt-2">
-        Tailor route calculation to your mobility needs.
-      </p>
-    </section>
-
-    <!-- USER PROFILE -->
-    <!-- No PWD ID, verification, or statistics -->
-
-    <section class="bg-white rounded-xl p-4 shadow-sm">
-      <div class="flex items-center gap-4">
-
-        <div class="w-16 h-16 rounded-full bg-surfaceHigh text-primary flex items-center justify-center shrink-0">
-          <span class="material-symbols-outlined text-[34px]">person</span>
-        </div>
-
-        <div>
-          <h2 class="font-heading text-lg font-semibold">
-            Maria Santos
-          </h2>
-
-          <p class="text-sm text-muted mt-1">
-            Daily Commuter
-          </p>
-        </div>
-
+      <div>
+        <p class="profile-name">Maria Santos</p>
+        <p class="profile-role">Daily Commuter</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ACCESSIBILITY NEEDS -->
+  <!-- ACCESSIBILITY NEEDS -->
 
-    <section class="space-y-3">
+  <section class="section">
+    <h2>Accessibility Needs</h2>
+    <p class="subtitle" style="margin-bottom:12px">
+      Select all that apply
+    </p>
 
-      <div class="flex justify-between items-center gap-2">
-        <h2 class="section-title">
-          <span class="material-symbols-outlined">accessible_forward</span>
-          Accessibility Needs
-        </h2>
+    <div class="needs-container" id="needsContainer">
 
-        <span class="text-[11px] text-muted">
-          Select all applicable
+      <button class="mobility-option"
+              type="button"
+              aria-pressed="true"
+              aria-checked="true"
+              role="checkbox"
+              data-index="0">
+        <span class="mobility-icon">
+          <span class="material-symbols-outlined">accessible</span>
         </span>
-      </div>
+        <span class="mobility-title">Wheelchair User</span>
+      </button>
 
-      <div id="needsContainer" class="space-y-2">
+      <button class="mobility-option"
+              type="button"
+              aria-checked="false"
+              role="checkbox"
+              data-index="1">
+        <span class="mobility-icon">
+          <span class="material-symbols-outlined">blind</span>
+        </span>
+        <span class="mobility-title">Cane / Walker</span>
+      </button>
 
-        <!-- Wheelchair User -->
+      <button class="mobility-option"
+              type="button"
+              aria-checked="false"
+              role="checkbox"
+              data-index="2">
+        <span class="mobility-icon">
+          <span class="material-symbols-outlined">visibility_off</span>
+        </span>
+        <span class="mobility-title">Visual Impairment</span>
+      </button>
 
-        <div class="mobility-option" data-selected="true" role="checkbox" aria-checked="true" tabindex="0">
-          <div class="flex items-center gap-4">
-            <div class="mobility-icon">
-              <span class="material-symbols-outlined">accessible</span>
-            </div>
+      <button class="mobility-option"
+              type="button"
+              aria-checked="false"
+              role="checkbox"
+              data-index="3">
+        <span class="mobility-icon">
+          <span class="material-symbols-outlined">elderly</span>
+        </span>
+        <span class="mobility-title">Limited Mobility</span>
+      </button>
 
-            <div>
-              <p class="mobility-title">Wheelchair User</p>
-              <p class="mobility-desc">
-                Requires Ramps &amp; Elevators
-              </p>
-            </div>
-          </div>
+      <button class="mobility-option"
+              type="button"
+              aria-checked="false"
+              role="checkbox"
+              data-index="4">
+        <span class="mobility-icon">
+          <span class="material-symbols-outlined">add_circle</span>
+        </span>
+        <span class="mobility-title">Other Needs</span>
+      </button>
 
-          <div class="check-indicator">
-            <span class="material-symbols-outlined">check</span>
-          </div>
-        </div>
+    </div>
+  </section>
 
-        <!-- Uses Cane / Walker -->
+  <!-- COVERAGE -->
 
-        <div class="mobility-option" data-selected="false" role="checkbox" aria-checked="false" tabindex="0">
-          <div class="flex items-center gap-4">
-            <div class="mobility-icon">
-              <span class="material-symbols-outlined">blind</span>
-            </div>
-
-            <div>
-              <p class="mobility-title">Uses Cane / Walker</p>
-              <p class="mobility-desc">
-                Requires Level Surfaces
-              </p>
-            </div>
-          </div>
-
-          <div class="check-indicator">
-            <span class="material-symbols-outlined">check</span>
-          </div>
-        </div>
-
-        <!-- Visual Impairment -->
-
-        <div class="mobility-option" data-selected="false" role="checkbox" aria-checked="false" tabindex="0">
-          <div class="flex items-center gap-4">
-            <div class="mobility-icon">
-              <span class="material-symbols-outlined">visibility_off</span>
-            </div>
-
-            <div>
-              <p class="mobility-title">Visual Impairment</p>
-              <p class="mobility-desc">
-                Voice Guidance &amp; Tactile Paving
-              </p>
-            </div>
-          </div>
-
-          <div class="check-indicator">
-            <span class="material-symbols-outlined">check</span>
-          </div>
-        </div>
-
-        <!-- Limited Mobility -->
-
-        <div class="mobility-option" data-selected="false" role="checkbox" aria-checked="false" tabindex="0">
-          <div class="flex items-center gap-4">
-            <div class="mobility-icon">
-              <span class="material-symbols-outlined">elderly</span>
-            </div>
-
-            <div>
-              <p class="mobility-title">Limited Mobility</p>
-              <p class="mobility-desc">
-                Low-Stair Routes
-              </p>
-            </div>
-          </div>
-
-          <div class="check-indicator">
-            <span class="material-symbols-outlined">check</span>
-          </div>
-        </div>
-
-        <!-- Other Specific Need -->
-
-        <div class="mobility-option" data-selected="false" role="checkbox" aria-checked="false" tabindex="0">
-          <div class="flex items-center gap-4">
-            <div class="mobility-icon">
-              <span class="material-symbols-outlined">add_circle</span>
-            </div>
-
-            <div>
-              <p class="mobility-title">Other Specific Need</p>
-              <p class="mobility-desc">
-                Custom ramp clearance &amp; sensory preferences
-              </p>
-            </div>
-          </div>
-
-          <div class="check-indicator">
-            <span class="material-symbols-outlined">check</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- PREFERRED ROUTE & SETTINGS -->
-
-    <section id="settingsSection" class="space-y-3 scroll-mt-20">
-
-      <h2 class="section-title">
-        <span class="material-symbols-outlined">display_settings</span>
-        Preferred Route &amp; App Settings
-      </h2>
-
-      <div class="settings-card bg-white rounded-xl p-4 shadow-sm divide-y divide-gray-100">
-
-        <!-- Larger Text -->
-
-        <div class="pb-4">
-          <div class="setting-row">
-            <div class="flex items-center gap-3">
-              <div class="setting-icon">
-                <span class="material-symbols-outlined">format_size</span>
-              </div>
-
-              <div>
-                <p class="setting-name">
-                  Larger Text (Accessibility)
-                </p>
-                <p class="setting-description">
-                  Scales UI text for rapid street-level reading
-                </p>
-              </div>
-            </div>
-
-            <button class="toggle-control" data-setting="largerText" role="switch" aria-label="Larger Text" aria-checked="true" type="button">
-              <span></span>
-            </button>
-          </div>
-
-          <div class="bg-surfaceLow rounded-lg p-3 mt-2">
-            <p class="text-[11px] text-primary uppercase font-semibold">
-              Preview Scaled Text:
-            </p>
-
-            <p class="text-base font-semibold mt-1">
-              MRT-3 Guadalupe Elev. Operational
-            </p>
-          </div>
-        </div>
-
-        <!-- High Contrast -->
-
-        <div class="setting-row">
-          <div class="flex items-center gap-3">
-            <div class="setting-icon">
-              <span class="material-symbols-outlined">contrast</span>
-            </div>
-
-            <div>
-              <p class="setting-name">High Contrast Mode</p>
-              <p class="setting-description">
-                Enhances road boundaries &amp; hazard alert vibrancy
-              </p>
-            </div>
-          </div>
-
-          <button class="toggle-control" data-setting="highContrast" role="switch" aria-label="High Contrast Mode" aria-checked="true" type="button">
-            <span></span>
-          </button>
-        </div>
-
-        <!-- Avoid Steep Ramps -->
-
-        <div class="setting-row">
-          <div class="flex items-center gap-3">
-            <div class="setting-icon">
-              <span class="material-symbols-outlined">trending_up</span>
-            </div>
-
-            <div>
-              <p class="setting-name">
-                Avoid Steep Ramps (&gt;8% slope)
-              </p>
-              <p class="setting-description">
-                Re-routes around elevated overpass footbridges
-              </p>
-            </div>
-          </div>
-
-          <button class="toggle-control" data-setting="avoidSteepRamps" role="switch" aria-label="Avoid Steep Ramps" aria-checked="true" type="button">
-            <span></span>
-          </button>
-        </div>
-
-        <!-- Audio Warnings -->
-
-        <div class="setting-row">
-          <div class="flex items-center gap-3">
-            <div class="setting-icon">
-              <span class="material-symbols-outlined">volume_up</span>
-            </div>
-
-            <div>
-              <p class="setting-name">Audio Cue Warnings</p>
-              <p class="setting-description">
-                Vocalize sidewalk blocks 50m prior to turn
-              </p>
-            </div>
-          </div>
-
-          <button class="toggle-control" data-setting="audioWarnings" role="switch" aria-label="Audio Cue Warnings" aria-checked="true" type="button">
-            <span></span>
-          </button>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CITY COVERAGE -->
-
-    <section class="bg-surfaceHigh p-4 rounded-xl flex items-center gap-4">
-      <div class="w-12 h-12 rounded-lg bg-white text-primary flex items-center justify-center shrink-0">
+  <section class="section">
+    <div class="info-card">
+      <div class="info-icon">
         <span class="material-symbols-outlined">pin_drop</span>
       </div>
-
       <div>
-        <p class="text-sm font-semibold">
-          Metropolitan Manila Engine
-        </p>
-
-        <p class="text-xs text-muted mt-1">
+        <p class="info-title">Metropolitan Manila Engine</p>
+        <p class="info-description">
           Route coverage for Quezon City, Makati, Pasig &amp; Manila
         </p>
       </div>
-    </section>
-
-    <!-- SAVE PREFERENCES -->
-
-    <section class="space-y-3">
-      <button
-        id="savePreferencesBtn"
-        type="button"
-        class="w-full h-12 bg-primaryContainer text-white rounded-lg font-semibold flex items-center justify-center gap-2 shadow-md hover:bg-primary transition"
-      >
-        <span class="material-symbols-outlined">save</span>
-        Save Preferences
-      </button>
-
-      <p class="text-center text-xs text-muted">
-        Your selected preferences will be saved on this device.
-      </p>
-    </section>
-
-  </main>
-
-  <!-- SAVE CONFIRMATION -->
-
-  <div
-    id="toastIndicator"
-    role="status"
-    aria-live="polite"
-    class="fixed bottom-24 left-1/2 w-[92%] max-w-md z-50 bg-[#1e3246] text-white rounded-xl p-4 shadow-xl"
-  >
-    <div class="flex items-center gap-3">
-      <span class="material-symbols-outlined text-[#a9c7ff]">
-        check_circle
-      </span>
-
-      <div>
-        <p class="font-semibold text-sm">
-          Preferences Saved
-        </p>
-
-        <p class="text-xs text-gray-300 mt-1">
-          Your accessibility settings have been updated.
-        </p>
-      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- BOTTOM NAVIGATION -->
+  <!-- SAVE -->
 
-  <nav class="fixed bottom-0 left-0 w-full bg-surface/95 backdrop-blur-xl shadow-lg z-40">
-    <div class="h-20 flex items-center justify-around px-2">
+  <button id="savePreferencesBtn" class="save-btn" type="button">
+    <span class="material-symbols-outlined">save</span>
+    Save Preferences
+  </button>
 
-      <a href="/pages/dashboard.html" class="nav-link" data-path="dashboard">
-        <div class="nav-icon">
-          <span class="material-symbols-outlined">dashboard</span>
-        </div>
-        Home
-      </a>
+  <p class="save-note">
+    Your accessibility preferences are saved on this device.
+  </p>
 
-      <a href="/pages/map.html" class="nav-link" data-path="spatial-map">
-        <div class="nav-icon">
-          <span class="material-symbols-outlined">explore</span>
-        </div>
-        Map
-      </a>
+</main>
 
-      <a href="/pages/report.html" class="nav-link" data-path="hazard-reports">
-        <div class="nav-icon">
-          <span class="material-symbols-outlined">security</span>
-        </div>
-        Reports
-      </a>
+<div id="toast" class="toast" role="status" aria-live="polite">
+  Accessibility preferences saved
+</div>
 
-      <a href="/pages/preferences.html" class="nav-link active" data-path="user-profile" aria-current="page">
-        <div class="nav-icon">
-          <span class="material-symbols-outlined">account_circle</span>
-        </div>
-        More
-      </a>
+<!-- BOTTOM NAVIGATION -->
 
-    </div>
-  </nav>
+<nav class="bottom-nav" aria-label="Main navigation">
 
-  <!-- JAVASCRIPT -->
+  <a href="/pages/dashboard.html" class="nav-link">
+    <span class="nav-icon">
+      <span class="material-symbols-outlined">dashboard</span>
+    </span>
+    Home
+  </a>
 
-  <script>
-    // Load saved preferences
-    let preferences = {};
+  <a href="/pages/map.html" class="nav-link">
+    <span class="nav-icon">
+      <span class="material-symbols-outlined">explore</span>
+    </span>
+    Map
+  </a>
 
-    try {
-      preferences = JSON.parse(
-        localStorage.getItem("biyahexpressPreferences") || "{}"
-      );
-    } catch (error) {
+  <a href="/pages/report.html" class="nav-link">
+    <span class="nav-icon">
+      <span class="material-symbols-outlined">security</span>
+    </span>
+    Reports
+  </a>
+
+  <a href="/pages/settings.html" class="nav-link">
+    <span class="nav-icon">
+      <span class="material-symbols-outlined">settings</span>
+    </span>
+    Settings
+  </a>
+
+  <a href="/pages/preferences.html" class="nav-link active"
+     aria-current="page">
+    <span class="nav-icon">
+      <span class="material-symbols-outlined">account_circle</span>
+    </span>
+    More
+  </a>
+
+</nav>
+
+<script>
+  const STORAGE_KEY = "biyahexpressPreferences";
+
+  let preferences = {};
+
+  try {
+    preferences = JSON.parse(
+      localStorage.getItem(STORAGE_KEY) || "{}"
+    );
+    if (!preferences || typeof preferences !== "object" ||
+        Array.isArray(preferences)) {
       preferences = {};
     }
+  } catch {
+    preferences = {};
+  }
 
-    // Mobility selection
-    const mobilityCards = document.querySelectorAll(".mobility-option");
+  const cards = document.querySelectorAll(".mobility-option");
 
-    function toggleMobility(card) {
-      const selected = card.getAttribute("data-selected") === "true";
-      const newState = !selected;
+  const savedNeeds = Array.isArray(preferences.mobilityNeeds)
+    ? preferences.mobilityNeeds
+    : [0];
 
-      card.setAttribute("data-selected", String(newState));
-      card.setAttribute("aria-checked", String(newState));
-    }
+  cards.forEach((card, index) => {
+    card.setAttribute(
+      "aria-checked",
+      String(savedNeeds.includes(index))
+    );
 
-    mobilityCards.forEach((card, index) => {
-      const stored = preferences.mobilityNeeds;
-
-      if (Array.isArray(stored)) {
-        const selected = stored.includes(index);
-        card.setAttribute("data-selected", String(selected));
-        card.setAttribute("aria-checked", String(selected));
-      }
-
-      card.addEventListener("click", () => toggleMobility(card));
-
-      card.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          toggleMobility(card);
-        }
-      });
+    card.addEventListener("click", () => {
+      const selected = card.getAttribute("aria-checked") === "true";
+      card.setAttribute("aria-checked", String(!selected));
     });
+  });
 
-    // Switches
-    const toggles = document.querySelectorAll(".toggle-control");
+  const saveBtn = document.getElementById("savePreferencesBtn");
+  const toast = document.getElementById("toast");
+  let toastTimer;
 
-    toggles.forEach((toggle) => {
-      const key = toggle.dataset.setting;
+  saveBtn.addEventListener("click", () => {
+    const mobilityNeeds = [];
 
-      if (typeof preferences[key] === "boolean") {
-        toggle.setAttribute("aria-checked", String(preferences[key]));
-      }
-
-      toggle.addEventListener("click", () => {
-        const current = toggle.getAttribute("aria-checked") === "true";
-
-        toggle.setAttribute("aria-checked", String(!current));
-        applyDisplaySettings();
-      });
-    });
-
-    function getSetting(name) {
-      const button = document.querySelector(
-        '[data-setting="' + name + '"]'
-      );
-
-      return button?.getAttribute("aria-checked") === "true";
-    }
-
-    function applyDisplaySettings() {
-      document.body.classList.toggle(
-        "large-text",
-        getSetting("largerText")
-      );
-
-      document.body.classList.toggle(
-        "high-contrast",
-        getSetting("highContrast")
-      );
-    }
-
-    applyDisplaySettings();
-
-    // Save preferences
-    const saveBtn = document.getElementById("savePreferencesBtn");
-    const toast = document.getElementById("toastIndicator");
-
-    let toastTimeout;
-
-    saveBtn.addEventListener("click", () => {
-      const selectedNeeds = [];
-
-      mobilityCards.forEach((card, index) => {
-        if (card.getAttribute("data-selected") === "true") {
-          selectedNeeds.push(index);
-        }
-      });
-
-      const data = {
-        mobilityNeeds: selectedNeeds,
-        largerText: getSetting("largerText"),
-        highContrast: getSetting("highContrast"),
-        avoidSteepRamps: getSetting("avoidSteepRamps"),
-        audioWarnings: getSetting("audioWarnings")
-      };
-
-      try {
-        localStorage.setItem(
-          "biyahexpressPreferences",
-          JSON.stringify(data)
-        );
-
-        toast.classList.add("show");
-        clearTimeout(toastTimeout);
-
-        toastTimeout = setTimeout(() => {
-          toast.classList.remove("show");
-        }, 3500);
-      } catch (error) {
-        console.error("Could not save preferences:", error);
-        alert("Unable to save preferences on this device.");
+    cards.forEach((card, index) => {
+      if (card.getAttribute("aria-checked") === "true") {
+        mobilityNeeds.push(index);
       }
     });
-  </script>
 
-  <script type="module" src="/src/navigation.js"></script>
+    try {
+      const latest = JSON.parse(
+        localStorage.getItem(STORAGE_KEY) || "{}"
+      );
+
+      const current = latest && typeof latest === "object" &&
+        !Array.isArray(latest) ? latest : {};
+
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({
+          ...current,
+          mobilityNeeds
+        })
+      );
+
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    } catch (error) {
+      console.error(error);
+      alert("Unable to save preferences.");
+    }
+  });
+</script>
 
 </body>
 </html>
