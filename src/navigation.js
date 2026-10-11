@@ -15,18 +15,6 @@ const pages = [
 const current = location.pathname.split('/').pop().replace('.html', '');
 const go = (page) => { location.href = `/pages/${page}.html`; };
 
-// Visible screen switcher: every exported Stitch page stays accessible.
-const switcher = document.createElement('div');
-switcher.id = 'prototype-navigation';
-switcher.innerHTML = `<button type="button" id="prototype-toggle" aria-label="Open screen menu" aria-expanded="false">☰ Screens</button><nav id="prototype-menu" aria-label="Prototype pages" hidden>${pages.map(([id, label]) => `<a ${id === current ? 'aria-current="page"' : ''} href="/pages/${id}.html">${label}</a>`).join('')}</nav>`;
-document.body.append(switcher);
-const css = document.createElement('style');
-css.textContent = `#prototype-navigation{position:fixed;bottom:78px;right:12px;z-index:2147483640;font:13px system-ui,sans-serif;color:#172554}#prototype-toggle{background:#172554;color:white;border:1px solid #93c5fd;border-radius:12px;padding:10px 12px;box-shadow:0 4px 18px #0004;cursor:pointer}#prototype-menu{position:absolute;right:0;bottom:48px;max-height:65vh;overflow:auto;width:240px;background:white;border:1px solid #ddd;border-radius:12px;box-shadow:0 10px 32px #0003;padding:7px}#prototype-menu[hidden]{display:none}#prototype-menu a{display:block;padding:9px 10px;color:#172554;text-decoration:none;border-radius:8px}#prototype-menu a:hover,#prototype-menu a[aria-current="page"]{background:#dbeafe}`;
-document.head.append(css);
-const toggle = document.getElementById('prototype-toggle');
-const menu = document.getElementById('prototype-menu');
-toggle.addEventListener('click', () => { menu.hidden = !menu.hidden; toggle.setAttribute('aria-expanded', String(!menu.hidden)); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { menu.hidden = true; toggle.setAttribute('aria-expanded', 'false'); } });
 
 // Wire the core demonstrable flow without changing the visual designs.
 document.addEventListener('click', (event) => {
