@@ -3,177 +3,733 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>BiyahExpress | On Your Way</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
 <style>
-*{box-sizing:border-box}
-:root{--blue:#195bd5;--dark:#132d48;--muted:#66778e;--bg:#f4f7fc;--line:#dce5f0}
-body{margin:0;background:var(--bg);font-family:Inter,sans-serif;color:var(--dark);padding-bottom:84px}
-button,a{font:inherit}
-button{cursor:pointer}
-.material-symbols-outlined{font-family:"Material Symbols Outlined";font-size:22px;line-height:1;font-style:normal;font-weight:normal;display:inline-block;font-feature-settings:"liga"}
-.topbar{background:white;padding:16px;display:flex;gap:14px;align-items:center;border-bottom:1px solid #e9eef5}
-.back{width:32px;height:38px;display:grid;place-items:center;text-decoration:none;color:#064a91;flex-shrink:0}
-.heading h1{font:800 21px/1.2 "Plus Jakarta Sans",sans-serif;margin:0}
-.heading p{font-size:11px;color:var(--muted);margin:5px 0 0}
-main{max-width:680px;padding:14px 16px 28px;margin:auto}
-.guidance-banner{background:var(--blue);border-radius:14px;color:white;display:flex;gap:12px;align-items:center;padding:15px;min-height:75px}
-.guidance-banner .material-symbols-outlined{font-size:27px;flex-shrink:0}
-.guidance-banner strong{font-size:14px}
-.guidance-banner p{font-size:11px;margin:5px 0 0;color:#dbe8ff}
-.map-panel{position:relative;height:235px;margin-top:12px;background:#edf2f5;border-radius:13px;overflow:hidden;border:1px solid #e4eaf0}
-.map-grid{position:absolute;inset:0;background-image:linear-gradient(25deg,transparent 47%,#fff 48%,#fff 52%,transparent 53%),linear-gradient(145deg,transparent 47%,#fff 48%,#fff 52%,transparent 53%);background-size:140px 120px,180px 160px;opacity:.9}
-.map-block{position:absolute;background:#dcebdd;border-radius:10px;color:#34536e;font-size:10px;padding:12px;text-align:center}
-.ust{top:9%;right:6%;width:38%;height:57px}
-.feu{bottom:22%;left:18%;width:24%;height:48px;background:#e2e9ee}
-.map-road{position:absolute;background:white;transform-origin:center;height:12px;border-radius:3px}
-.road-one{width:115%;left:-6%;top:58%;transform:rotate(-15deg)}
-.road-two{width:75%;left:28%;top:67%;transform:rotate(-38deg)}
-.route-line{position:absolute;inset:0;width:100%;height:100%}
-.map-tag{position:absolute;font-size:10px;color:#6c8196}
-.map-tag.a{left:13%;bottom:18%}
-.map-tag.b{right:9%;bottom:14%}
-.map-label{position:absolute;left:8px;top:8px;background:white;color:#7890a8;font-size:9px;padding:5px 7px;border-radius:5px}
-.map-north{position:absolute;right:9px;top:9px;width:25px;height:25px;background:white;border-radius:8px;display:grid;place-items:center;font-size:12px;font-weight:700}
-.map-pin{position:absolute;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;color:#fff;background:#195bd5;transform:translate(-50%,-50%);box-shadow:0 2px 7px #0002}
-.map-pin.end{background:#c17c14}
-.map-pin .material-symbols-outlined{font-size:17px}
-.summary{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:14px 0}
-.summary strong{font-size:17px;font-weight:800}
-.demo-pill{font-size:10px;background:#e5eeff;padding:5px 9px;border-radius:20px;color:#195bd5}
-.steps-card{background:white;border:1px solid var(--line);border-radius:14px;padding:15px}
-.steps-card h2{font:700 16px "Plus Jakarta Sans",sans-serif;margin:0 0 13px}
-.step{display:flex;gap:11px;margin:14px 0;align-items:flex-start}
-.step-icon{width:31px;height:31px;border-radius:10px;background:#e7f0ff;color:#3176e9;display:grid;place-items:center;flex-shrink:0}
-.step-icon .material-symbols-outlined{font-size:19px}
-.step strong{display:block;font-size:12px;line-height:1.5}
-.step p{font-size:11px;color:var(--muted);margin:3px 0 0;line-height:1.5}
-.hazard{display:flex;align-items:center;gap:10px;background:#fff0d7;border-radius:12px;padding:14px;margin:12px 0;text-decoration:none;color:#9b6108}
-.hazard .material-symbols-outlined{flex-shrink:0}
-.hazard div{flex:1}
-.hazard strong{font-size:12px}
-.hazard p{font-size:10px;margin:4px 0 0}
-.secondary-btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:46px;border:1px solid var(--line);border-radius:10px;background:white;color:#195bd5;font-size:12px;text-decoration:none}
-.footnote{font-size:11px;color:var(--muted);line-height:1.5;margin-top:15px}
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;min-height:74px;background:white;display:flex;align-items:center;box-shadow:0 -2px 12px #0000000d;z-index:50}
-.nav-link{flex:1;min-height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;text-decoration:none;color:#687991;font-size:10px}
-.nav-icon{width:54px;height:30px;border-radius:20px;display:grid;place-items:center}
-.nav-link.active{color:#195bd5;font-weight:700}
-.nav-link.active .nav-icon{background:#e5efff}
-a:focus-visible,button:focus-visible{outline:3px solid #6a9eff;outline-offset:3px}
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #00346a;
+  --primary-container: #064a91;
+  --bright-blue: #195bd5;
+  --background: #f8f9ff;
+  --text: #132d48;
+  --muted: #66778e;
+  --border: #dce5f0;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  padding-bottom: 96px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button, a {
+  font-family: inherit;
+}
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  display: inline-block;
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* PAGE CONTAINER */
+
+.page-container {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* TOP HEADER */
+
+.topbar {
+  padding: 18px 16px;
+  background: white;
+  border-bottom: 1px solid #e9eef5;
+}
+
+.topbar-inner {
+  max-width: 680px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.back-button {
+  width: 34px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--primary);
+}
+
+.page-heading h1 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.page-heading p {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 5px 0 0;
+}
+
+/* MAIN */
+
+main {
+  padding: 14px 16px 30px;
+}
+
+/* NAVIGATION DIRECTION */
+
+.guidance-banner {
+  background: var(--bright-blue);
+  border-radius: 14px;
+  min-height: 78px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: white;
+}
+
+.guidance-banner > .material-symbols-outlined {
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.guidance-banner strong {
+  font-size: 15px;
+}
+
+.guidance-banner p {
+  margin: 5px 0 0;
+  font-size: 11px;
+  color: #dbe8ff;
+}
+
+/* SCHEMATIC MAP */
+
+.map-panel {
+  position: relative;
+  height: 245px;
+  margin-top: 12px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #edf2f5;
+  border: 1px solid #e4eaf0;
+}
+
+.map-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(
+      25deg,
+      transparent 47%,
+      white 48%,
+      white 52%,
+      transparent 53%
+    ),
+    linear-gradient(
+      145deg,
+      transparent 47%,
+      white 48%,
+      white 52%,
+      transparent 53%
+    );
+  background-size: 140px 120px, 180px 160px;
+  opacity: 0.9;
+}
+
+.map-block {
+  position: absolute;
+  padding: 12px;
+  border-radius: 10px;
+  background: #dcebdd;
+  color: #34536e;
+  font-size: 10px;
+  text-align: center;
+}
+
+.map-block.ust {
+  top: 9%;
+  right: 6%;
+  width: 38%;
+  height: 57px;
+}
+
+.map-block.feu {
+  bottom: 22%;
+  left: 18%;
+  width: 24%;
+  height: 48px;
+  background: #e2e9ee;
+}
+
+.map-road {
+  position: absolute;
+  height: 12px;
+  background: white;
+  border-radius: 3px;
+  transform-origin: center;
+}
+
+.road-one {
+  width: 115%;
+  left: -6%;
+  top: 58%;
+  transform: rotate(-15deg);
+}
+
+.road-two {
+  width: 75%;
+  left: 28%;
+  top: 67%;
+  transform: rotate(-38deg);
+}
+
+.route-line {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.map-tag {
+  position: absolute;
+  font-size: 10px;
+  color: #6c8196;
+}
+
+.map-tag.a {
+  left: 13%;
+  bottom: 18%;
+}
+
+.map-tag.b {
+  right: 9%;
+  bottom: 14%;
+}
+
+.map-label {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 5px 7px;
+  background: white;
+  border-radius: 5px;
+  color: #7890a8;
+  font-size: 9px;
+}
+
+.map-north {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  width: 25px;
+  height: 25px;
+  border-radius: 8px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.map-pin {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bright-blue);
+  color: white;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 7px rgba(0,0,0,0.13);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.map-pin.end {
+  background: #c17c14;
+}
+
+.map-pin .material-symbols-outlined {
+  font-size: 17px;
+}
+
+/* JOURNEY SUMMARY */
+
+.journey-summary {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.journey-summary strong {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.demo-pill {
+  background: #e5eeff;
+  color: #195bd5;
+  padding: 6px 10px;
+  border-radius: 25px;
+  font-size: 10px;
+}
+
+/* ROUTE STEPS */
+
+.steps-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 16px;
+}
+
+.steps-card h2 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 0 14px;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 15px 0;
+}
+
+.step-icon {
+  width: 33px;
+  height: 33px;
+  flex-shrink: 0;
+  background: #e7f0ff;
+  color: #3176e9;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-icon .material-symbols-outlined {
+  font-size: 20px;
+}
+
+.step strong {
+  display: block;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.step p {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ACCESSIBILITY WARNING */
+
+.hazard-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  margin: 12px 0;
+  background: #fff0d7;
+  border-radius: 12px;
+  color: #9b6108;
+  text-decoration: none;
+}
+
+.hazard-card > .material-symbols-outlined {
+  flex-shrink: 0;
+}
+
+.hazard-content {
+  flex: 1;
+}
+
+.hazard-content strong {
+  font-size: 12px;
+}
+
+.hazard-content p {
+  font-size: 10px;
+  margin: 4px 0 0;
+}
+
+.secondary-button {
+  width: 100%;
+  min-height: 46px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #195bd5;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.footnote {
+  margin-top: 15px;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* FIXED BOTTOM NAVIGATION */
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 680px;
+  min-height: 76px;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: rgba(248, 249, 255, 0.97);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 100;
+}
+
+.nav-link {
+  flex: 1;
+  min-width: 0;
+  min-height: 62px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: #424751;
+  font-size: 11px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nav-icon {
+  width: 56px;
+  height: 32px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-link.active {
+  color: #00346a;
+  font-weight: 700;
+}
+
+.nav-link.active .nav-icon {
+  background: #064a91;
+  color: white;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #54a0fe;
+  outline-offset: 3px;
+}
+
+/* SMALL SCREENS */
+
+@media (max-width: 360px) {
+  .page-heading h1 {
+    font-size: 19px;
+  }
+
+  .nav-icon {
+    width: 50px;
+  }
+
+  .nav-link {
+    font-size: 10px;
+  }
+
+  .map-panel {
+    height: 220px;
+  }
+}
 </style>
 </head>
+
 <body>
 
+<!-- TOP HEADER -->
+
 <header class="topbar">
-  <a class="back" href="/pages/planner.html" aria-label="Back to route selection">
-    <span class="material-symbols-outlined">arrow_back</span>
-  </a>
-  <div class="heading">
-    <h1>On your way to FEU</h1>
-    <p>University Belt · Demonstration data</p>
+  <div class="topbar-inner">
+
+    <a
+      href="/pages/planner.html"
+      class="back-button"
+      aria-label="Back to route selection"
+    >
+      <span class="material-symbols-outlined">arrow_back</span>
+    </a>
+
+    <div class="page-heading">
+      <h1>On your way to FEU</h1>
+      <p>University Belt · Demonstration data</p>
+    </div>
+
   </div>
 </header>
 
-<main>
+<!-- MAIN CONTENT -->
 
-  <!-- CURRENT GUIDANCE -->
+<main class="page-container">
 
-  <section class="guidance-banner" aria-label="Next direction">
-    <span class="material-symbols-outlined" id="directionIcon">turn_left</span>
+  <!-- CURRENT INSTRUCTION -->
+
+  <section class="guidance-banner">
+
+    <span
+      class="material-symbols-outlined"
+      id="directionIcon"
+    >
+      turn_left
+    </span>
+
     <div>
       <strong id="directionTitle">Walk to España stop</strong>
-      <p id="directionSubtitle">80 m · Near the UST entrance</p>
+      <p id="directionSubtitle">
+        80 m · Near the UST entrance
+      </p>
     </div>
+
   </section>
 
-  <!-- SCHEMATIC ROUTE MAP -->
+  <!-- ROUTE MAP -->
 
-  <section class="map-panel" aria-label="Schematic demonstration route">
+  <section
+    class="map-panel"
+    aria-label="Schematic demonstration route"
+  >
+
     <div class="map-grid"></div>
+
     <div class="map-road road-one"></div>
     <div class="map-road road-two"></div>
 
-    <div class="map-block ust">University of<br>Santo Tomas</div>
-    <div class="map-block feu">Far Eastern<br>University</div>
+    <div class="map-block ust">
+      University of<br>Santo Tomas
+    </div>
 
-    <svg class="route-line" viewBox="0 0 360 235" preserveAspectRatio="none" aria-hidden="true">
-      <path id="routeDrawing"
+    <div class="map-block feu">
+      Far Eastern<br>University
+    </div>
+
+    <svg
+      class="route-line"
+      viewBox="0 0 360 235"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+
+      <path
+        id="routeDrawing"
         d="M255 58 L170 100 L183 160 L139 180"
-        fill="none" stroke="#195bd5" stroke-width="5"
-        stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="255" cy="58" r="6" fill="#195bd5" stroke="white" stroke-width="2"/>
+        fill="none"
+        stroke="#195bd5"
+        stroke-width="5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+
+      <circle
+        cx="255"
+        cy="58"
+        r="6"
+        fill="#195bd5"
+        stroke="white"
+        stroke-width="2"
+      />
+
     </svg>
 
-    <span class="map-label">SCHEMATIC · DEMO</span>
+    <span class="map-label">
+      SCHEMATIC · DEMO
+    </span>
+
     <span class="map-north">N↑</span>
+
     <span class="map-tag a">Recto Ave</span>
     <span class="map-tag b">Legarda St</span>
 
-    <span class="map-pin" style="left:49%;top:67%">
-      <span class="material-symbols-outlined">directions_bus</span>
+    <span
+      class="map-pin"
+      style="left:49%;top:67%"
+    >
+      <span class="material-symbols-outlined">
+        directions_bus
+      </span>
     </span>
-    <span class="map-pin end" style="left:39%;top:77%">
-      <span class="material-symbols-outlined">flag</span>
+
+    <span
+      class="map-pin end"
+      style="left:39%;top:77%"
+    >
+      <span class="material-symbols-outlined">
+        flag
+      </span>
     </span>
+
   </section>
 
-  <!-- JOURNEY SUMMARY -->
+  <!-- JOURNEY ESTIMATE -->
 
-  <section class="summary">
-    <strong id="journeySummary">18 min · 320 m walk</strong>
+  <section class="journey-summary">
+
+    <strong id="journeySummary">
+      18 min · 320 m walk
+    </strong>
+
     <span class="demo-pill">Demo</span>
+
   </section>
 
-  <!-- ROUTE STEPS -->
+  <!-- DIRECTIONS -->
 
   <section class="steps-card">
+
     <h2>Your next steps</h2>
+
     <div id="routeSteps"></div>
+
   </section>
 
-  <!-- ACCESSIBILITY HAZARD -->
+  <!-- HAZARD WARNING -->
 
-  <a class="hazard" href="/pages/report.html">
-    <span class="material-symbols-outlined">warning_amber</span>
-    <div>
+  <a
+    href="/pages/report.html"
+    class="hazard-card"
+  >
+
+    <span class="material-symbols-outlined">
+      warning_amber
+    </span>
+
+    <div class="hazard-content">
       <strong>Uneven sidewalk ahead</strong>
-      <p>Example report BX-1042 · Pending verification</p>
+      <p>
+        Example report BX-1042 · Pending verification
+      </p>
     </div>
-    <span class="material-symbols-outlined">chevron_right</span>
+
+    <span class="material-symbols-outlined">
+      chevron_right
+    </span>
+
   </a>
 
-  <a class="secondary-btn" href="/pages/planner.html">
-    See hazard & alternative route
+  <!-- ALTERNATIVE ROUTE -->
+
+  <a
+    href="/pages/planner.html"
+    class="secondary-button"
+  >
+    See hazard &amp; alternative route
   </a>
 
   <p class="footnote">
-    Sample guidance only. This page does not track your location or provide live turn-by-turn directions. Stop in a safe place before checking your phone.
+    Sample guidance only. This page does not track your
+    location or provide live turn-by-turn directions.
+    Stop in a safe place before checking your phone.
   </p>
 
 </main>
 
+<!-- BOTTOM NAVIGATION -->
+
 <nav class="bottom-nav" aria-label="Main navigation">
-  <a class="nav-link active" href="/pages/map.html">
-    <span class="nav-icon"><span class="material-symbols-outlined">map</span></span>Map
+
+  <a href="/pages/map.html" class="nav-link active">
+    <span class="nav-icon">
+      <span class="material-symbols-outlined">explore</span>
+    </span>
+    <span>Map</span>
   </a>
-  <a class="nav-link" href="/pages/report.html">
-    <span class="nav-icon"><span class="material-symbols-outlined">report</span></span>Reports
+
+  <a href="/pages/report.html" class="nav-link">
+    <span class="nav-icon">
+      <span class="material-symbols-outlined">security</span>
+    </span>
+    <span>Reports</span>
   </a>
-  <a class="nav-link" href="/pages/settings.html">
-    <span class="nav-icon"><span class="material-symbols-outlined">settings</span></span>Settings
+
+  <a href="/pages/settings.html" class="nav-link">
+    <span class="nav-icon">
+      <span class="material-symbols-outlined">settings</span>
+    </span>
+    <span>Settings</span>
   </a>
-  <a class="nav-link" href="/pages/preferences.html">
-    <span class="nav-icon"><span class="material-symbols-outlined">account_circle</span></span>More
+
+  <a href="/pages/preferences.html" class="nav-link">
+    <span class="nav-icon">
+      <span class="material-symbols-outlined">account_circle</span>
+    </span>
+    <span>More</span>
   </a>
+
 </nav>
 
 <script>
-  const route = sessionStorage.getItem("biyahexpressSelectedRoute") === "walking"
-    ? "walking"
-    : "transit";
+  // GET THE ROUTE SELECTED IN PLANNER
+
+  const selectedRoute =
+    sessionStorage.getItem("biyahexpressSelectedRoute") === "walking"
+      ? "walking"
+      : "transit";
+
+  // DEMONSTRATION JOURNEY DATA
 
   const journeys = {
     transit: {
@@ -184,22 +740,25 @@ a:focus-visible,button:focus-visible{outline:3px solid #6a9eff;outline-offset:3p
       path: "M255 58 L170 100 L183 160 L139 180",
       steps: [
         {
-          icon: "footprint",
+          icon: "directions_walk",
           title: "Walk 80 m to España",
           description: "Use the sidewalk toward Morayta."
         },
         {
           icon: "directions_bus",
           title: "Jeepney toward Morayta",
-          description: "Confirm direction and boarding accessibility with the driver."
+          description:
+            "Confirm direction and boarding accessibility with the driver."
         },
         {
           icon: "flag",
           title: "Walk 240 m to FEU",
-          description: "Via Nicanor Reyes · 1 reported hazard"
+          description:
+            "Via Nicanor Reyes · 1 reported hazard"
         }
       ]
     },
+
     walking: {
       summary: "24 min · 1.1 km walk",
       title: "Walk along España",
@@ -208,57 +767,84 @@ a:focus-visible,button:focus-visible{outline:3px solid #6a9eff;outline-offset:3p
       path: "M255 58 L225 86 L180 112 L153 148 L139 180",
       steps: [
         {
-          icon: "footprint",
+          icon: "directions_walk",
           title: "Walk along España Boulevard",
-          description: "Continue toward the Morayta intersection."
+          description:
+            "Continue toward the Morayta intersection."
         },
         {
           icon: "turn_right",
           title: "Turn toward Nicanor Reyes",
-          description: "Check crossings and sidewalk conditions before proceeding."
+          description:
+            "Check crossings and sidewalk conditions before proceeding."
         },
         {
           icon: "flag",
           title: "Continue to the FEU entrance",
-          description: "Step-free access not verified · 1 reported hazard"
+          description:
+            "Step-free access not verified · 1 reported hazard"
         }
       ]
     }
   };
 
-  const selected = journeys[route];
+  // GET CURRENT JOURNEY
 
-  document.getElementById("journeySummary").textContent = selected.summary;
-  document.getElementById("directionTitle").textContent = selected.title;
-  document.getElementById("directionSubtitle").textContent = selected.subtitle;
-  document.getElementById("directionIcon").textContent = selected.icon;
-  document.getElementById("routeDrawing").setAttribute("d", selected.path);
+  const journey = journeys[selectedRoute];
+
+  // UPDATE JOURNEY SUMMARY
+
+  document.getElementById("journeySummary").textContent =
+    journey.summary;
+
+  document.getElementById("directionTitle").textContent =
+    journey.title;
+
+  document.getElementById("directionSubtitle").textContent =
+    journey.subtitle;
+
+  document.getElementById("directionIcon").textContent =
+    journey.icon;
+
+  document.getElementById("routeDrawing").setAttribute(
+    "d",
+    journey.path
+  );
+
+  // GENERATE DIRECTION STEPS
 
   const stepsContainer = document.getElementById("routeSteps");
 
-  selected.steps.forEach(step => {
+  journey.steps.forEach(step => {
     const row = document.createElement("div");
     row.className = "step";
 
-    const iconBox = document.createElement("span");
+    const iconBox = document.createElement("div");
     iconBox.className = "step-icon";
 
     const symbol = document.createElement("span");
     symbol.className = "material-symbols-outlined";
     symbol.textContent = step.icon;
+
     iconBox.appendChild(symbol);
 
-    const text = document.createElement("div");
+    const textContainer = document.createElement("div");
+
     const title = document.createElement("strong");
     title.textContent = step.title;
 
     const description = document.createElement("p");
     description.textContent = step.description;
 
-    text.append(title, description);
-    row.append(iconBox, text);
+    textContainer.appendChild(title);
+    textContainer.appendChild(description);
+
+    row.appendChild(iconBox);
+    row.appendChild(textContainer);
+
     stepsContainer.appendChild(row);
   });
 </script>
+
 </body>
 </html>

@@ -3,180 +3,674 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>BiyahExpress | Choose Your Route</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
 <style>
-*{box-sizing:border-box}
-:root{--blue:#064a91;--bright:#195bd5;--ink:#132d48;--muted:#66778e;--line:#dce5f0;--bg:#f4f7fc}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,sans-serif;padding-bottom:84px}
-button,a{font:inherit}
-button{cursor:pointer}
-.material-symbols-outlined{font-family:"Material Symbols Outlined";font-size:22px;line-height:1;font-weight:normal;font-style:normal;display:inline-block;font-feature-settings:"liga"}
-.topbar{background:#fff;padding:16px;display:flex;gap:14px;align-items:center;border-bottom:1px solid #e9eef5}
-.back{width:32px;height:38px;display:grid;place-items:center;color:var(--blue);text-decoration:none;flex-shrink:0}
-.heading h1{font:800 22px/1.2 "Plus Jakarta Sans",sans-serif;margin:0}
-.heading p{font-size:11px;color:var(--muted);margin:5px 0 0}
-main{max-width:680px;margin:auto;padding:14px 16px 25px}
-.journey{background:#fff;border:1px solid var(--line);border-radius:15px;padding:14px;display:flex;gap:12px;align-items:center}
-.journey-icon{width:35px;height:35px;border-radius:12px;background:#e7efff;color:var(--bright);display:grid;place-items:center;flex-shrink:0}
-.journey strong{font-size:12px}
-.journey p{font-size:11px;color:var(--muted);margin:5px 0 0;line-height:1.4}
-.chips{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}
-.chip{background:#e7efff;color:#2163d6;font-size:10px;padding:6px 9px;border-radius:30px}
-.route-option{width:100%;display:block;text-align:left;background:white;border:1.5px solid var(--line);border-radius:17px;padding:15px;margin:11px 0;color:inherit;transition:border-color .15s,background .15s}
-.route-option.selected{background:#e8f0ff;border-color:#91b7ff}
-.route-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.route-top strong{font-size:15px}
-.radio{width:18px;height:18px;border:1.5px solid #5388f4;border-radius:50%;display:grid;place-items:center;color:#195bd5;flex-shrink:0}
-.route-option.selected .radio::after{content:"";width:9px;height:9px;border-radius:50%;background:#195bd5}
-.route-time{font-size:26px;margin:10px 0 4px;font-weight:500}
-.route-time small{font-size:11px;font-weight:700;color:#203c6e;margin-left:8px}
-.route-detail{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
-.detail-icon{width:28px;height:28px;border-radius:9px;background:#eaf2ff;color:#2b75ec;display:grid;place-items:center;flex-shrink:0}
-.detail-icon .material-symbols-outlined{font-size:18px}
-.route-detail strong{font-size:12px}
-.route-detail p{font-size:11px;color:var(--muted);margin:4px 0 0;line-height:1.4}
-.warning{display:inline-block;background:#fff1d6;color:#986008;padding:5px 9px;border-radius:20px;font-size:10px;margin-top:8px}
-.description{font-size:11px;color:#60728d;line-height:1.5;margin:10px 0 0}
-.notice{display:flex;gap:8px;background:#e4eeff;border-radius:11px;color:#2160c9;font-size:11px;line-height:1.5;padding:12px;margin-top:14px}
-.notice .material-symbols-outlined{font-size:17px;flex-shrink:0}
-.primary-btn,.secondary-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:48px;border-radius:11px;margin-top:11px;text-decoration:none;font-size:13px}
-.primary-btn{background:#195bd5;border:0;color:white;font-weight:700}
-.secondary-btn{background:#fff;border:1px solid var(--line);color:#195bd5}
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;min-height:74px;background:#fff;display:flex;align-items:center;box-shadow:0 -2px 12px #0000000d;z-index:50}
-.nav-link{flex:1;min-height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;text-decoration:none;color:#687991;font-size:10px}
-.nav-icon{width:54px;height:30px;border-radius:20px;display:grid;place-items:center}
-.nav-link.active{color:#195bd5;font-weight:700}
-.nav-link.active .nav-icon{background:#e5efff}
-button:focus-visible,a:focus-visible{outline:3px solid #6a9eff;outline-offset:3px}
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #00346a;
+  --primary-container: #064a91;
+  --bright-blue: #195bd5;
+  --background: #f8f9ff;
+  --surface: #ffffff;
+  --light-blue: #eef4ff;
+  --text: #132d48;
+  --muted: #66778e;
+  --border: #dce5f0;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  padding-bottom: 96px;
+}
+
+button, input {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  display: inline-block;
+  font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+
+/* PAGE CONTAINER */
+
+.page-container {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* TOP HEADER */
+
+.topbar {
+  background: white;
+  border-bottom: 1px solid #e9eef5;
+  padding: 18px 16px;
+}
+
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.back-button {
+  width: 34px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.page-heading h1 {
+  margin: 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 23px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.page-heading p {
+  margin: 5px 0 0;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* MAIN */
+
+main {
+  padding: 14px 16px 30px;
+}
+
+/* JOURNEY SUMMARY */
+
+.journey-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.journey-icon {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #e7efff;
+  color: var(--bright-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.journey-card strong {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.journey-card p {
+  margin: 5px 0 0;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ROUTE FILTER LABELS */
+
+.preference-chips {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin: 13px 0;
+}
+
+.preference-chip {
+  background: #e7efff;
+  color: #2163d6;
+  font-size: 10px;
+  border-radius: 30px;
+  padding: 6px 10px;
+}
+
+/* ROUTE SELECTION */
+
+.route-option {
+  width: 100%;
+  display: block;
+  text-align: left;
+  background: white;
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  margin: 11px 0;
+  color: inherit;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.route-option.selected {
+  background: #e8f0ff;
+  border-color: #91b7ff;
+}
+
+.route-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.route-top strong {
+  font-size: 15px;
+}
+
+.radio-indicator {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  border: 1.5px solid #5388f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.route-option.selected .radio-indicator::after {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #195bd5;
+}
+
+.route-time {
+  font-size: 26px;
+  font-weight: 500;
+  margin: 11px 0 5px;
+}
+
+.route-time small {
+  font-size: 11px;
+  font-weight: 700;
+  color: #203c6e;
+  margin-left: 8px;
+}
+
+.route-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.detail-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  flex-shrink: 0;
+  background: #eaf2ff;
+  color: #2b75ec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-icon .material-symbols-outlined {
+  font-size: 19px;
+}
+
+.route-detail strong {
+  font-size: 12px;
+}
+
+.route-detail p {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.warning-tag {
+  display: inline-block;
+  margin-top: 7px;
+  padding: 6px 9px;
+  background: #fff1d6;
+  color: #986008;
+  border-radius: 25px;
+  font-size: 10px;
+}
+
+.route-description {
+  margin: 11px 0 0;
+  color: #60728d;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* INFORMATION NOTICE */
+
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 13px;
+  margin-top: 14px;
+  background: #e4eeff;
+  border-radius: 11px;
+  color: #2160c9;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.notice .material-symbols-outlined {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* ACTION BUTTONS */
+
+.primary-button,
+.secondary-button {
+  width: 100%;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 11px;
+  margin-top: 12px;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.primary-button {
+  background: #195bd5;
+  color: white;
+  font-weight: 700;
+  border: none;
+}
+
+.primary-button:hover {
+  background: #064a91;
+}
+
+.secondary-button {
+  background: white;
+  border: 1px solid var(--border);
+  color: #195bd5;
+}
+
+/* FIXED BOTTOM NAVIGATION */
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 680px;
+  min-height: 76px;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: rgba(248, 249, 255, 0.97);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 100;
+}
+
+.nav-link {
+  flex: 1;
+  min-width: 0;
+  min-height: 62px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: #424751;
+  font-size: 11px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nav-icon {
+  width: 56px;
+  height: 32px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-link.active {
+  color: #00346a;
+  font-weight: 700;
+}
+
+.nav-link.active .nav-icon {
+  background: #064a91;
+  color: white;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #54a0fe;
+  outline-offset: 3px;
+}
+
+@media (max-width: 360px) {
+  .page-heading h1 {
+    font-size: 20px;
+  }
+
+  .route-option {
+    padding: 13px;
+  }
+
+  .nav-icon {
+    width: 50px;
+  }
+
+  .nav-link {
+    font-size: 10px;
+  }
+}
 </style>
 </head>
+
 <body>
 
+<!-- TOP HEADER -->
+
 <header class="topbar">
-  <a class="back" href="/pages/map.html" aria-label="Back to Map">
-    <span class="material-symbols-outlined">arrow_back</span>
-  </a>
-  <div class="heading">
-    <h1>Choose your route</h1>
-    <p>University Belt · Demonstration data</p>
+  <div class="topbar-inner">
+
+    <a
+      href="/pages/map.html"
+      class="back-button"
+      aria-label="Back to Map"
+    >
+      <span class="material-symbols-outlined">arrow_back</span>
+    </a>
+
+    <div class="page-heading">
+      <h1>Choose your route</h1>
+      <p>University Belt · Demonstration data</p>
+    </div>
+
   </div>
 </header>
 
-<main>
-  <div class="journey">
+<!-- MAIN CONTENT -->
+
+<main class="page-container">
+
+  <!-- SELECTED JOURNEY -->
+
+  <section class="journey-card">
+
     <div class="journey-icon">
       <span class="material-symbols-outlined">route</span>
     </div>
+
     <div>
       <strong>UST → Far Eastern University</strong>
       <p>España Blvd → Nicanor Reyes entrance</p>
     </div>
+
+  </section>
+
+  <!-- ACCESSIBILITY PREFERENCES -->
+
+  <div class="preference-chips">
+    <span class="preference-chip">Step-free preferred</span>
+    <span class="preference-chip">Avoid uneven surfaces</span>
   </div>
 
-  <div class="chips">
-    <span class="chip">Step-free preferred</span>
-    <span class="chip">Avoid uneven surfaces</span>
-  </div>
+  <!-- ROUTES -->
 
-  <div role="radiogroup" aria-label="Available routes">
-    <button class="route-option selected" type="button" data-route="transit" role="radio" aria-checked="true">
+  <section role="radiogroup" aria-label="Available route options">
+
+    <!-- TRANSIT ROUTE -->
+
+    <button
+      type="button"
+      class="route-option selected"
+      data-route="transit"
+      role="radio"
+      aria-checked="true"
+    >
+
       <div class="route-top">
         <strong>Transit · Less walking</strong>
-        <span class="radio" aria-hidden="true"></span>
+        <span class="radio-indicator" aria-hidden="true"></span>
       </div>
-      <div class="route-time">18 min <small>320 m walk</small></div>
+
+      <div class="route-time">
+        18 min
+        <small>320 m walk</small>
+      </div>
+
       <div class="route-detail">
-        <span class="detail-icon"><span class="material-symbols-outlined">directions_bus</span></span>
+
+        <span class="detail-icon">
+          <span class="material-symbols-outlined">directions_bus</span>
+        </span>
+
         <div>
           <strong>Walk → Jeepney → Walk</strong>
           <p>1 ride · Boarding access not verified</p>
         </div>
+
       </div>
-      <span class="warning">1 uneven-surface report · Pending</span>
-      <p class="description">Via España & N. Reyes. A sidewalk report near Recto may affect the final walking segment.</p>
+
+      <span class="warning-tag">
+        1 uneven-surface report · Pending
+      </span>
+
+      <p class="route-description">
+        Via España &amp; N. Reyes. A sidewalk report near Recto may
+        affect the final walking segment.
+      </p>
+
     </button>
 
-    <button class="route-option" type="button" data-route="walking" role="radio" aria-checked="false">
+    <!-- WALKING ROUTE -->
+
+    <button
+      type="button"
+      class="route-option"
+      data-route="walking"
+      role="radio"
+      aria-checked="false"
+    >
+
       <div class="route-top">
         <strong>Walk all the way</strong>
-        <span class="radio" aria-hidden="true"></span>
+        <span class="radio-indicator" aria-hidden="true"></span>
       </div>
-      <div class="route-time">24 min <small>1.1 km walk</small></div>
+
+      <div class="route-time">
+        24 min
+        <small>1.1 km walk</small>
+      </div>
+
       <div class="route-detail">
-        <span class="detail-icon"><span class="material-symbols-outlined">footprint</span></span>
+
+        <span class="detail-icon">
+          <span class="material-symbols-outlined">directions_walk</span>
+        </span>
+
         <div>
-          <strong>Walk via España & N. Reyes</strong>
+          <strong>Walk via España &amp; N. Reyes</strong>
           <p>No vehicle boarding · Step-free not verified</p>
         </div>
+
       </div>
-      <span class="warning">1 uneven-surface report · Pending</span>
-      <p class="description">Uses the same reported sidewalk segment. No confirmed accessible path is available in this demo.</p>
+
+      <span class="warning-tag">
+        1 uneven-surface report · Pending
+      </span>
+
+      <p class="route-description">
+        Uses the same reported sidewalk segment. No confirmed
+        accessible path is available in this demo.
+      </p>
+
     </button>
-  </div>
+
+  </section>
+
+  <!-- DISCLAIMER -->
 
   <div class="notice">
     <span class="material-symbols-outlined">info</span>
-    <span>Sample estimates, not live travel times. No route is certified accessible.</span>
+    <span>
+      Sample estimates, not live travel times.
+      No route is certified accessible.
+    </span>
   </div>
 
-  <button id="startRoute" class="primary-btn" type="button">
-    <span class="material-symbols-outlined" style="font-size:19px">navigation</span>
+  <!-- START ROUTE -->
+
+  <button id="startRoute" class="primary-button" type="button">
+    <span class="material-symbols-outlined" style="font-size:19px">
+      navigation
+    </span>
     Start selected route
   </button>
 
-  <a class="secondary-btn" href="/pages/report.html">View reported hazard & detour</a>
+  <a class="secondary-button" href="/pages/report.html">
+    View reported hazard &amp; detour
+  </a>
+
 </main>
 
+<!-- BOTTOM NAVIGATION -->
+
 <nav class="bottom-nav" aria-label="Main navigation">
-  <a class="nav-link active" href="/pages/map.html">
-    <span class="nav-icon"><span class="material-symbols-outlined">map</span></span>Map
+
+  <a href="/pages/map.html" class="nav-link active">
+    <span class="nav-icon">
+      <span class="material-symbols-outlined">explore</span>
+    </span>
+    <span>Map</span>
   </a>
-  <a class="nav-link" href="/pages/report.html">
-    <span class="nav-icon"><span class="material-symbols-outlined">report</span></span>Reports
+
+  <a href="/pages/report.html" class="nav-link">
+    <span class="nav-icon">
+      <span class="material-symbols-outlined">security</span>
+    </span>
+    <span>Reports</span>
   </a>
-  <a class="nav-link" href="/pages/settings.html">
-    <span class="nav-icon"><span class="material-symbols-outlined">settings</span></span>Settings
+
+  <a href="/pages/settings.html" class="nav-link">
+    <span class="nav-icon">
+      <span class="material-symbols-outlined">settings</span>
+    </span>
+    <span>Settings</span>
   </a>
-  <a class="nav-link" href="/pages/preferences.html">
-    <span class="nav-icon"><span class="material-symbols-outlined">account_circle</span></span>More
+
+  <a href="/pages/preferences.html" class="nav-link">
+    <span class="nav-icon">
+      <span class="material-symbols-outlined">account_circle</span>
+    </span>
+    <span>More</span>
   </a>
+
 </nav>
 
 <script>
   const routeButtons = document.querySelectorAll(".route-option");
-  let selectedRoute = sessionStorage.getItem("biyahexpressSelectedRoute") || "transit";
+
+  let selectedRoute =
+    sessionStorage.getItem("biyahexpressSelectedRoute") || "transit";
 
   function selectRoute(route) {
     selectedRoute = route;
+
     routeButtons.forEach(button => {
-      const active = button.dataset.route === route;
-      button.classList.toggle("selected", active);
-      button.setAttribute("aria-checked", String(active));
+      const isSelected = button.dataset.route === route;
+
+      button.classList.toggle("selected", isSelected);
+      button.setAttribute("aria-checked", String(isSelected));
+      button.tabIndex = isSelected ? 0 : -1;
     });
   }
 
   routeButtons.forEach(button => {
-    button.addEventListener("click", () => selectRoute(button.dataset.route));
+    button.addEventListener("click", () => {
+      selectRoute(button.dataset.route);
+    });
+
     button.addEventListener("keydown", event => {
-      if (event.key === "ArrowDown" || event.key === "ArrowRight" ||
-          event.key === "ArrowUp" || event.key === "ArrowLeft") {
+      if (
+        ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"]
+          .includes(event.key)
+      ) {
         event.preventDefault();
-        const next = selectedRoute === "transit" ? "walking" : "transit";
-        selectRoute(next);
-        document.querySelector(`[data-route="${next}"]`).focus();
+
+        const nextRoute =
+          selectedRoute === "transit" ? "walking" : "transit";
+
+        selectRoute(nextRoute);
+
+        document
+          .querySelector(`[data-route="${nextRoute}"]`)
+          .focus();
       }
     });
   });
 
-  selectRoute(selectedRoute === "walking" ? "walking" : "transit");
+  selectRoute(
+    selectedRoute === "walking" ? "walking" : "transit"
+  );
 
   document.getElementById("startRoute").addEventListener("click", () => {
-    sessionStorage.setItem("biyahexpressSelectedRoute", selectedRoute);
+    sessionStorage.setItem(
+      "biyahexpressSelectedRoute",
+      selectedRoute
+    );
+
     window.location.href = "/pages/route.html";
   });
 </script>
+
 </body>
 </html>
