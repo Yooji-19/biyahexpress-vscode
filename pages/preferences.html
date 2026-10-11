@@ -1,340 +1,878 @@
-<!DOCTYPE html><html lang="en" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-tertiary": "#ffffff", "on-primary-container": "#95bcff", "secondary-fixed": "#d4e3ff", "error-container": "#ffdad6", "surface": "#f8f9ff", "on-secondary-fixed-variant": "#004786", "inverse-primary": "#a9c7ff", "on-background": "#061d30", "tertiary-fixed": "#eddcff", "on-secondary-fixed": "#001c3a", "surface-container-highest": "#d0e4ff", "primary-fixed-dim": "#a9c7ff", "tertiary": "#451a7d", "primary": "#00346a", "surface-container-low": "#eef4ff", "inverse-on-surface": "#e9f1ff", "surface-container-lowest": "#ffffff", "on-error-container": "#93000a", "on-secondary": "#ffffff", "outline-variant": "#c2c6d2", "on-tertiary-fixed": "#280056", "primary-container": "#064a91", "on-primary-fixed": "#001b3d", "inverse-surface": "#1e3246", "error": "#ba1a1a", "surface-bright": "#f8f9ff", "on-error": "#ffffff", "on-primary-fixed-variant": "#00468b", "primary-fixed": "#d6e3ff", "on-tertiary-container": "#cdacff", "tertiary-fixed-dim": "#d7baff", "surface-container-high": "#daeaff", "tertiary-container": "#5c3595", "on-surface": "#061d30", "surface-dim": "#c7dcf7", "on-primary": "#ffffff", "on-tertiary-fixed-variant": "#583090", "surface-container": "#e4efff", "surface-variant": "#d0e4ff", "on-secondary-container": "#003567", "on-surface-variant": "#424751", "outline": "#737782", "secondary-fixed-dim": "#a5c8ff", "background": "#f8f9ff", "secondary": "#005faf", "secondary-container": "#54a0fe", "surface-tint": "#295ea6" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "margin": "1rem", "space-md": "1rem", "space-lg": "1.5rem", "margin-desktop": "2rem", "margin-tablet": "1.5rem", "gutter-mobile": "0.75rem", "space-xl": "2rem", "space-sm": "0.5rem", "gutter": "1rem", "space-xs": "0.25rem" }, fontFamily: { "headline-sm": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "body-lg": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "body-md": ["Inter"], "label-md": ["Plus Jakarta Sans"], "body-strong": ["Inter"], "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"] }, fontSize: { "headline-sm": ["18px", { "lineHeight": "24px", "letterSpacing": "0", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.02em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "600" }], "body-strong": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-lg-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } }</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl pt-safe"><div class="w-full px-space-md h-6 flex items-center justify-between text-on-surface font-headline-sm text-label-md select-none"><span class="font-label-md text-label-md tracking-tight">9:41</span><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-[16px]">wifi</span><span class="material-symbols-outlined text-[16px]">signal_cellular_alt</span><span class="material-symbols-outlined text-[16px]">battery_full</span></div></div><div class="h-16 px-space-md flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="BiyahExpress Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpt6VD6taaf8BllkliQ4wCRtIlg8m3K6_LA0paWwaTO3_YMCEfmQFTYZpDAsavNExqLfLKz_zJr3l-EWOiLf8PxypBh5vaw894L6Z93H1FK4DqaGhEzLCUVbgllEmmRtwzEyYxB3TZ-ODD36leP-IKsUEgEkTJ78T3JODT4_VdkM44Z35rfCD83s_RfVdJZYw5A5hGThuZbcVnGaS_ofX5SUeaP2LgONrgj7YcVeZlcAuiDlXTufQ1mb98iBl9cb57L00"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary leading-tight tracking-tight">BiyahExpress</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-none tracking-wide uppercase">User Profile</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Settings" class="w-12 h-12 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors text-on-surface"><span class="material-symbols-outlined">settings</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex-1 w-full bg-surface pb-24 pt-24"><div class="flex flex-col w-full px-space-md py-space-md space-y-space-lg select-none">
-<!-- Top Greeting & Header Intro -->
-<div class="flex flex-col space-y-space-xs">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-primary text-[22px]">tune</span>
-<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">Your Profile</h1>
-</div>
-<span class="px-3 py-1 rounded-full bg-surface-container-high text-primary font-label-sm text-label-sm flex items-center gap-1 shadow-sm">
-<span class="material-symbols-outlined text-[14px]">bolt</span>
-        Active Engine
-      </span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant">
-      Tailor route calculation to your mobility needs.
-    </p>
-</div>
-<!-- User Commuter Card -->
-<div class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-md relative overflow-hidden flex flex-col space-y-space-md">
-<div class="absolute -right-6 -bottom-6 w-28 h-28 bg-primary/5 rounded-full blur-xl pointer-events-none"></div>
-<div class="flex items-start justify-between">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="relative shrink-0">
-<div class="w-16 h-16 rounded-full bg-surface-container-high text-primary flex items-center justify-center shadow-sm"><span class="material-symbols-outlined text-[32px]">person</span></div>
-<span class="absolute bottom-0 right-0 w-5 h-5 bg-primary-container text-on-primary rounded-full flex items-center justify-center shadow-sm">
-<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">verified</span>
-</span>
-</div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-space-xs">
-<span class="font-headline-sm text-headline-sm text-on-surface truncate">Maria Santos</span>
-</div>
-<span class="font-body-strong text-body-strong text-on-surface-variant truncate">Daily Commuter</span>
-<span class="font-label-sm text-label-sm text-outline mt-0.5 tracking-wide">PWD ID: #NCR-2024-8831</span>
-</div>
-</div>
-<span class="shrink-0 px-2.5 py-1 rounded-full bg-surface-container-low text-primary font-label-sm text-label-sm flex items-center gap-1 shadow-sm">
-<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-        Verified PWD
-      </span>
-</div>
-<!-- Quick Commute Footprint Metric -->
-<div class="grid grid-cols-3 gap-space-xs bg-surface-container-low rounded-lg p-space-sm text-center">
-<div class="flex flex-col">
-<span class="font-headline-sm text-headline-sm text-primary">142</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Safe Trips</span>
-</div>
-<div class="flex flex-col">
-<span class="font-headline-sm text-headline-sm text-primary">38</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Ramps Verified</span>
-</div>
-<div class="flex flex-col">
-<span class="font-headline-sm text-headline-sm text-primary">100%</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Ramp Bound</span>
-</div>
-</div>
-</div>
-<!-- Mobility Needs Selector -->
-<div class="flex flex-col space-y-space-sm">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-primary text-[20px]">accessible_forward</span>
-<h2 class="font-headline-sm text-headline-sm text-on-surface">Accessibility Needs</h2>
-</div>
-<span class="font-label-sm text-label-sm text-outline">Select all applicable</span>
-</div>
-<div class="flex flex-col space-y-space-xs" id="needsContainer">
-<!-- 1. Wheelchair User (Selected) -->
-<div aria-checked="true" class="mobility-option w-full p-space-md rounded-xl bg-surface-container-low shadow-sm flex items-center justify-between cursor-pointer transition-all active:scale-[0.99]" data-selected="true" role="checkbox" tabindex="0">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary flex items-center justify-center shrink-0 shadow-sm">
-<span class="material-symbols-outlined text-[26px]">accessible</span>
-</div>
-<div class="flex flex-col min-w-0">
-<div class="flex items-center gap-space-xs">
-<span class="font-body-strong text-body-strong text-primary truncate">Wheelchair User</span>
-</div>
-<span class="inline-block mt-0.5 px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">Requires Ramps &amp; Elevators</span>
-</div>
-</div>
-<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center shrink-0 check-indicator">
-<span class="material-symbols-outlined text-[20px]">check</span>
-</div>
-</div>
-<!-- 2. Uses Cane / Walker -->
-<div aria-checked="false" class="mobility-option w-full p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between cursor-pointer transition-all active:scale-[0.99]" data-selected="false" role="checkbox" tabindex="0">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-12 h-12 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-[26px]">blind</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-body-strong text-body-strong text-on-surface truncate">Uses Cane / Walker</span>
-<span class="font-body-md text-body-md text-on-surface-variant">Requires Level Surfaces</span>
-</div>
-</div>
-<div class="w-8 h-8 rounded-full bg-surface-container text-outline flex items-center justify-center shrink-0 check-indicator">
-<span class="material-symbols-outlined text-[20px] opacity-0">check</span>
-</div>
-</div>
-<!-- 3. Visual Impairment -->
-<div aria-checked="false" class="mobility-option w-full p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between cursor-pointer transition-all active:scale-[0.99]" data-selected="false" role="checkbox" tabindex="0">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-12 h-12 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-[26px]">visibility_off</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-body-strong text-body-strong text-on-surface truncate">Visual Impairment</span>
-<span class="font-body-md text-body-md text-on-surface-variant">Voice Guidance &amp; Tactile Paving</span>
-</div>
-</div>
-<div class="w-8 h-8 rounded-full bg-surface-container text-outline flex items-center justify-center shrink-0 check-indicator">
-<span class="material-symbols-outlined text-[20px] opacity-0">check</span>
-</div>
-</div>
-<!-- 4. Limited Mobility -->
-<div aria-checked="false" class="mobility-option w-full p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between cursor-pointer transition-all active:scale-[0.99]" data-selected="false" role="checkbox" tabindex="0">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-12 h-12 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-[26px]">elderly</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-body-strong text-body-strong text-on-surface truncate">Limited Mobility</span>
-<span class="font-body-md text-body-md text-on-surface-variant">Low-Stair Routes</span>
-</div>
-</div>
-<div class="w-8 h-8 rounded-full bg-surface-container text-outline flex items-center justify-center shrink-0 check-indicator">
-<span class="material-symbols-outlined text-[20px] opacity-0">check</span>
-</div>
-</div>
-<!-- 5. Other Specific Need -->
-<div aria-checked="false" class="mobility-option w-full p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-between cursor-pointer transition-all active:scale-[0.99]" data-selected="false" role="checkbox" tabindex="0">
-<div class="flex items-center gap-space-md min-w-0">
-<div class="w-12 h-12 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-[26px]">add_circle</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-body-strong text-body-strong text-on-surface truncate">Other Specific Need</span>
-<span class="font-body-md text-body-md text-on-surface-variant">Custom ramp clearance &amp; sensory preferences</span>
-</div>
-</div>
-<div class="w-8 h-8 rounded-full bg-surface-container text-outline flex items-center justify-center shrink-0 check-indicator">
-<span class="material-symbols-outlined text-[20px] opacity-0">check</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Preferred Route & App Settings Section -->
-<div class="flex flex-col space-y-space-sm">
-<div class="flex items-center gap-space-xs">
-<span class="material-symbols-outlined text-primary text-[20px]">display_settings</span>
-<h2 class="font-headline-sm text-headline-sm text-on-surface">Preferred Route &amp; App Settings</h2>
-</div>
-<div class="flex flex-col space-y-space-xs bg-surface-container-lowest rounded-xl p-space-md shadow-md">
-<!-- Setting 1: Larger Text -->
-<div class="flex flex-col pb-space-sm">
-<div class="flex items-center justify-between min-h-[48px]">
-<div class="flex items-center gap-space-sm min-w-0 pr-space-sm">
-<div class="w-10 h-10 rounded-full bg-surface-container-low text-primary flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-[22px]">format_size</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-body-strong text-body-strong text-on-surface">Larger Text (Accessibility)</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Scales UI text for rapid street-level reading</span>
-</div>
-</div>
-<button aria-checked="true" class="toggle-control relative inline-flex h-8 w-14 shrink-0 cursor-pointer rounded-full bg-primary-container p-1 transition-colors duration-200" role="switch" type="button">
-<span class="pointer-events-none inline-block h-6 w-6 transform rounded-full bg-surface-container-lowest shadow transition duration-200 translate-x-6"></span>
-</button>
-</div>
-<!-- Live Preview Pill -->
-<div class="mt-2 p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
-<span class="font-label-sm text-label-sm text-primary uppercase">Preview Scaled Text:</span>
-<span class="font-body-lg text-body-lg text-on-surface font-semibold tracking-wide">MRT-3 Guadalupe Elev. Operational</span>
-</div>
-</div>
-<!-- Setting 2: High Contrast Mode -->
-<div class="flex items-center justify-between min-h-[48px] py-space-sm">
-<div class="flex items-center gap-space-sm min-w-0 pr-space-sm">
-<div class="w-10 h-10 rounded-full bg-surface-container-low text-primary flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-[22px]">contrast</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-body-strong text-body-strong text-on-surface">High Contrast Mode</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Enhances road boundaries &amp; hazard alert vibrancy</span>
-</div>
-</div>
-<button aria-checked="true" class="toggle-control relative inline-flex h-8 w-14 shrink-0 cursor-pointer rounded-full bg-primary-container p-1 transition-colors duration-200" role="switch" type="button">
-<span class="pointer-events-none inline-block h-6 w-6 transform rounded-full bg-surface-container-lowest shadow transition duration-200 translate-x-6"></span>
-</button>
-</div>
-<!-- Setting 3: Avoid Steep Ramps -->
-<div class="flex items-center justify-between min-h-[48px] py-space-sm">
-<div class="flex items-center gap-space-sm min-w-0 pr-space-sm">
-<div class="w-10 h-10 rounded-full bg-surface-container-low text-primary flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-[22px]">trending_up</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-body-strong text-body-strong text-on-surface">Avoid Steep Ramps (&gt;8% slope)</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Re-routes around elevated overpass footbridges</span>
-</div>
-</div>
-<button aria-checked="true" class="toggle-control relative inline-flex h-8 w-14 shrink-0 cursor-pointer rounded-full bg-primary-container p-1 transition-colors duration-200" role="switch" type="button">
-<span class="pointer-events-none inline-block h-6 w-6 transform rounded-full bg-surface-container-lowest shadow transition duration-200 translate-x-6"></span>
-</button>
-</div>
-<!-- Setting 4: Audio Cue Warnings -->
-<div class="flex items-center justify-between min-h-[48px] pt-space-sm">
-<div class="flex items-center gap-space-sm min-w-0 pr-space-sm">
-<div class="w-10 h-10 rounded-full bg-surface-container-low text-primary flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-[22px]">volume_up</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-body-strong text-body-strong text-on-surface">Audio Cue Warnings</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Vocalize sidewalk blocks 50m prior to turn</span>
-</div>
-</div>
-<button aria-checked="true" class="toggle-control relative inline-flex h-8 w-14 shrink-0 cursor-pointer rounded-full bg-primary-container p-1 transition-colors duration-200" role="switch" type="button">
-<span class="pointer-events-none inline-block h-6 w-6 transform rounded-full bg-surface-container-lowest shadow transition duration-200 translate-x-6"></span>
-</button>
-</div>
-</div>
-</div>
-<!-- City Coverage Visual Banner -->
-<div class="w-full bg-surface-container-high rounded-xl p-space-md flex items-center gap-space-md">
-<div class="w-12 h-12 rounded-lg bg-surface-container-lowest text-primary flex items-center justify-center shrink-0 shadow-sm">
-<span class="material-symbols-outlined text-[24px]">pin_drop</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-body-strong text-body-strong text-on-surface truncate">Metropolitan Manila Engine</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">Live feeds updated for Quezon City, Makati, Pasig &amp; Manila</span>
-</div>
-</div>
-<!-- Primary Sticky/Action Container -->
-<div class="pt-space-xs pb-space-lg flex flex-col space-y-space-sm">
-<button class="w-full h-12 bg-primary-container text-on-primary rounded-lg font-label-lg text-label-lg flex items-center justify-center gap-space-xs shadow-md transition-all active:scale-[0.98] hover:bg-primary" id="savePreferencesBtn" type="button">
-<span class="material-symbols-outlined text-[20px]">save</span>
-<span class="">Save Preferences</span>
-</button>
-<p class="text-center font-label-sm text-label-sm text-outline">
-      Calculations update instantly on your active journey path.
-    </p>
-</div>
-<!-- Confirmation Toast Indicator (Positioned absolute relative to container, initially hidden) -->
-<div class="fixed bottom-24 left-1/2 -translate-x-1/2 w-[92%] max-w-md bg-inverse-surface text-inverse-on-surface rounded-xl px-space-md py-space-sm shadow-xl flex items-center justify-between transition-all duration-300 transform opacity-0 translate-y-6 pointer-events-none z-50" id="toastIndicator">
-<div class="flex items-center gap-space-sm">
-<span class="material-symbols-outlined text-secondary-container text-[22px]">check_circle</span>
-<div class="flex flex-col">
-<span class="font-body-strong text-body-strong text-inverse-on-surface">Preferences active for Manila routes</span>
-<span class="font-label-sm text-label-sm text-inverse-primary">Ramp routing and audio alerts engaged</span>
-</div>
-</div>
-<span class="material-symbols-outlined text-inverse-on-surface/70 text-[18px]">verified_user</span>
-</div>
-</div>
-<script>
-  // Interactive Multi-Select Cards
-  const cards = document.querySelectorAll('.mobility-option');
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      const isSelected = card.getAttribute('data-selected') === 'true';
-      const newState = !isSelected;
-      card.setAttribute('data-selected', String(newState));
-      card.setAttribute('aria-checked', String(newState));
 
-      const iconBox = card.querySelector('div:first-child > div:first-child');
-      const title = card.querySelector('.font-body-strong');
-      const indicator = card.querySelector('.check-indicator');
-      const checkGlyph = indicator.querySelector('.material-symbols-outlined');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BiyahExpress | User Profile</title>
 
-      if (newState) {
-        card.classList.remove('bg-surface-container-lowest');
-        card.classList.add('bg-surface-container-low');
-        iconBox.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
-        iconBox.classList.add('bg-primary-container', 'text-on-primary');
-        title.classList.remove('text-on-surface');
-        title.classList.add('text-primary');
-        indicator.classList.remove('bg-surface-container', 'text-outline');
-        indicator.classList.add('bg-primary-container', 'text-on-primary');
-        checkGlyph.classList.remove('opacity-0');
-      } else {
-        card.classList.add('bg-surface-container-lowest');
-        card.classList.remove('bg-surface-container-low');
-        iconBox.classList.add('bg-surface-container-high', 'text-on-surface-variant');
-        iconBox.classList.remove('bg-primary-container', 'text-on-primary');
-        title.classList.add('text-on-surface');
-        title.classList.remove('text-primary');
-        indicator.classList.add('bg-surface-container', 'text-outline');
-        indicator.classList.remove('bg-primary-container', 'text-on-primary');
-        checkGlyph.classList.add('opacity-0');
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#00346a",
+            primaryContainer: "#064a91",
+            surface: "#f8f9ff",
+            surfaceLow: "#eef4ff",
+            surfaceHigh: "#daeaff",
+            onSurface: "#061d30",
+            muted: "#424751"
+          },
+          fontFamily: {
+            body: ["Inter", "sans-serif"],
+            heading: ["Plus Jakarta Sans", "sans-serif"]
+          }
+        }
       }
-    });
-  });
+    };
+  </script>
 
-  // Toggle Switches Behavior
-  const toggles = document.querySelectorAll('.toggle-control');
-  toggles.forEach(toggle => {
-    toggle.addEventListener('click', () => {
-      const isChecked = toggle.getAttribute('aria-checked') === 'true';
-      const newState = !isChecked;
-      toggle.setAttribute('aria-checked', String(newState));
-      const knob = toggle.querySelector('span');
-      if (newState) {
-        toggle.classList.remove('bg-surface-container-highest');
-        toggle.classList.add('bg-primary-container');
-        knob.classList.remove('translate-x-0');
-        knob.classList.add('translate-x-6');
-      } else {
-        toggle.classList.remove('bg-primary-container');
-        toggle.classList.add('bg-surface-container-highest');
-        knob.classList.remove('translate-x-6');
-        knob.classList.add('translate-x-0');
-      }
-    });
-  });
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-  // Save Preferences Toast Feedback
-  const saveBtn = document.getElementById('savePreferencesBtn');
-  const toast = document.getElementById('toastIndicator');
-  let toastTimeout = null;
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: #f8f9ff;
+      color: #061d30;
+    }
 
-  if (saveBtn && toast) {
-    saveBtn.addEventListener('click', () => {
-      clearTimeout(toastTimeout);
-      toast.classList.remove('opacity-0', 'translate-y-6', 'pointer-events-none');
-      toast.classList.add('opacity-100', 'translate-y-0');
+    .material-symbols-outlined {
+      font-family: "Material Symbols Outlined";
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      display: inline-block;
+      white-space: nowrap;
+      font-feature-settings: "liga";
+      -webkit-font-smoothing: antialiased;
+    }
 
-      toastTimeout = setTimeout(() => {
-        toast.classList.add('opacity-0', 'translate-y-6', 'pointer-events-none');
-        toast.classList.remove('opacity-100', 'translate-y-0');
-      }, 3500);
-    });
+    /* Header with logo icon only */
+
+    .app-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 64px;
+      background: rgba(248, 249, 255, 0.97);
+      backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      z-index: 50;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.04);
+    }
+
+    .logo-icon {
+      width: 31px;
+      height: 40px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .logo-icon img {
+      height: 40px;
+      width: auto;
+      max-width: none;
+      object-fit: contain;
+      object-position: left center;
+    }
+
+    /* Section headings */
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .section-title .material-symbols-outlined {
+      color: #00346a;
+    }
+
+    /* Accessibility cards */
+
+    .mobility-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      width: 100%;
+      padding: 16px;
+      border-radius: 12px;
+      background: white;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .mobility-option[data-selected="true"] {
+      background: #eef4ff;
+      border-color: #a9c7ff;
+    }
+
+    .mobility-option:focus-visible,
+    .toggle-control:focus-visible {
+      outline: 3px solid #54a0fe;
+      outline-offset: 2px;
+    }
+
+    .mobility-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #daeaff;
+      color: #00346a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .mobility-title {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .mobility-desc {
+      color: #424751;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .check-indicator {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #e4efff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: transparent;
+      flex-shrink: 0;
+    }
+
+    .mobility-option[data-selected="true"] .check-indicator {
+      background: #064a91;
+      color: white;
+    }
+
+    /* Settings */
+
+    .setting-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 15px 0;
+    }
+
+    .setting-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #eef4ff;
+      color: #00346a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .setting-name {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .setting-description {
+      font-size: 11px;
+      color: #424751;
+      margin-top: 3px;
+    }
+
+    .toggle-control {
+      width: 56px;
+      height: 32px;
+      padding: 4px;
+      background: #064a91;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+
+    .toggle-control span {
+      display: block;
+      width: 24px;
+      height: 24px;
+      background: white;
+      border-radius: 50%;
+      transform: translateX(24px);
+      transition: transform 0.2s;
+    }
+
+    .toggle-control[aria-checked="false"] {
+      background: #d0e4ff;
+    }
+
+    .toggle-control[aria-checked="false"] span {
+      transform: translateX(0);
+    }
+
+    /* Accessibility display modes */
+
+    .large-text .mobility-title,
+    .large-text .setting-name {
+      font-size: 18px;
+    }
+
+    .large-text .mobility-desc,
+    .large-text .setting-description {
+      font-size: 15px;
+    }
+
+    .high-contrast {
+      background: white;
+      color: #001b3d;
+    }
+
+    .high-contrast .mobility-option,
+    .high-contrast .settings-card {
+      border: 2px solid #00346a;
+    }
+
+    /* Bottom navigation */
+
+    .nav-link {
+      color: #424751;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      min-width: 65px;
+      font-size: 11px;
+    }
+
+    .nav-link.active {
+      color: #00346a;
+      font-weight: 700;
+    }
+
+    .nav-link.active .nav-icon {
+      background: #064a91;
+      color: white;
+    }
+
+    .nav-icon {
+      width: 64px;
+      height: 34px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Save confirmation */
+
+    #toastIndicator {
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, 20px);
+      transition: 0.3s;
+    }
+
+    #toastIndicator.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  </style>
+
+<style id="biyahexpress-header-style">
+  .app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    background: #f8f9ff;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    z-index: 50;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.05);
   }
-</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]" data-active-classes="[&amp;_.nav-pill]:bg-primary-container [&amp;_.nav-pill]:text-on-primary [&amp;_.nav-label]:text-primary-container [&amp;_.nav-label]:font-headline-sm"><div class="flex justify-around items-center h-20 px-space-xs"><a class="flex flex-col items-center justify-center w-20 min-h-[48px] py-space-xs group transition-colors text-on-surface-variant hover:text-on-surface" data-path="dashboard" href="#"><div class="nav-pill w-16 h-8 flex items-center justify-center rounded-full transition-all text-on-surface-variant"><span class="material-symbols-outlined text-[24px]">dashboard</span></div><span class="nav-label font-label-sm text-label-sm transition-all mt-space-xs text-on-surface-variant">Home</span></a><a class="flex flex-col items-center justify-center w-20 min-h-[48px] py-space-xs group transition-colors text-on-surface-variant hover:text-on-surface" data-path="spatial-map" href="#"><div class="nav-pill w-16 h-8 flex items-center justify-center rounded-full transition-all text-on-surface-variant"><span class="material-symbols-outlined text-[24px]">explore</span></div><span class="nav-label font-label-sm text-label-sm transition-all mt-space-xs text-on-surface-variant">Map</span></a><a class="flex flex-col items-center justify-center w-20 min-h-[48px] py-space-xs group transition-colors text-on-surface-variant hover:text-on-surface" data-path="hazard-reports" href="#"><div class="nav-pill w-16 h-8 flex items-center justify-center rounded-full transition-all text-on-surface-variant"><span class="material-symbols-outlined text-[24px]">security</span></div><span class="nav-label font-label-sm text-label-sm transition-all mt-space-xs text-on-surface-variant">Reports</span></a><a aria-current="page" class="flex flex-col items-center justify-center w-20 min-h-[48px] py-space-xs group transition-colors text-on-surface-variant hover:text-on-surface [&amp;_.nav-pill]:bg-primary-container [&amp;_.nav-pill]:text-on-primary [&amp;_.nav-label]:text-primary-container [&amp;_.nav-label]:font-headline-sm" data-path="user-profile" href="#"><div class="nav-pill w-16 h-8 flex items-center justify-center rounded-full transition-all text-on-surface-variant"><span class="material-symbols-outlined text-[24px]">account_circle</span></div><span class="nav-label font-label-sm text-label-sm transition-all mt-space-xs text-on-surface-variant">More</span></a></div></nav>
+
+  .logo-icon {
+    width: 31px;
+    height: 40px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-icon img {
+    height: 40px;
+    width: auto;
+    max-width: none;
+    max-height: none;
+    flex-shrink: 0;
+  }
+
+  main {
+    padding-top: 80px !important;
+  }
+</style>
+
+</head>
+
+<body>
+
+  <!-- HEADER: LOGO ICON ONLY -->
+
+  
 
 
+<header class="app-header">
+  <a
+    href="/pages/dashboard.html"
+    class="logo-icon"
+    aria-label="Go to Home Dashboard"
+    title="Go to Home"
+    style="cursor: pointer;"
+  >
+    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpt6VD6taaf8BllkliQ4wCRtIlg8m3K6_LA0paWwaTO3_YMCEfmQFTYZpDAsavNExqLfLKz_zJr3l-EWOiLf8PxypBh5vaw894L6Z93H1FK4DqaGhEzLCUVbgllEmmRtwzEyYxB3TZ-ODD36leP-IKsUEgEkTJ78T3JODT4_VdkM44Z35rfCD83s_RfVdJZYw5A5hGThuZbcVnGaS_ofX5SUeaP2LgONrgj7YcVeZlcAuiDlXTufQ1mb98iBl9cb57L00" alt="BiyahExpress Logo">
+  </a>
+</header>
 
+  <!-- MAIN CONTENT -->
 
+  <main class="pt-20 pb-28 px-4 max-w-3xl mx-auto space-y-6">
 
-<script type="module" src="/src/navigation.js"></script></body></html>
+    <!-- PAGE TITLE -->
+
+    <section>
+      <div class="flex items-center justify-between gap-2">
+        <h1 class="font-heading text-[26px] font-bold flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary">tune</span>
+          Your Profile
+        </h1>
+
+        <span class="text-[11px] font-semibold text-primary bg-surfaceHigh px-3 py-2 rounded-full flex items-center gap-1">
+          <span class="material-symbols-outlined text-[15px]">bolt</span>
+          Active Engine
+        </span>
+      </div>
+
+      <p class="text-sm text-muted mt-2">
+        Tailor route calculation to your mobility needs.
+      </p>
+    </section>
+
+    <!-- USER PROFILE -->
+    <!-- No PWD ID, verification, or statistics -->
+
+    <section class="bg-white rounded-xl p-4 shadow-sm">
+      <div class="flex items-center gap-4">
+
+        <div class="w-16 h-16 rounded-full bg-surfaceHigh text-primary flex items-center justify-center shrink-0">
+          <span class="material-symbols-outlined text-[34px]">person</span>
+        </div>
+
+        <div>
+          <h2 class="font-heading text-lg font-semibold">
+            Maria Santos
+          </h2>
+
+          <p class="text-sm text-muted mt-1">
+            Daily Commuter
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ACCESSIBILITY NEEDS -->
+
+    <section class="space-y-3">
+
+      <div class="flex justify-between items-center gap-2">
+        <h2 class="section-title">
+          <span class="material-symbols-outlined">accessible_forward</span>
+          Accessibility Needs
+        </h2>
+
+        <span class="text-[11px] text-muted">
+          Select all applicable
+        </span>
+      </div>
+
+      <div id="needsContainer" class="space-y-2">
+
+        <!-- Wheelchair User -->
+
+        <div class="mobility-option" data-selected="true" role="checkbox" aria-checked="true" tabindex="0">
+          <div class="flex items-center gap-4">
+            <div class="mobility-icon">
+              <span class="material-symbols-outlined">accessible</span>
+            </div>
+
+            <div>
+              <p class="mobility-title">Wheelchair User</p>
+              <p class="mobility-desc">
+                Requires Ramps &amp; Elevators
+              </p>
+            </div>
+          </div>
+
+          <div class="check-indicator">
+            <span class="material-symbols-outlined">check</span>
+          </div>
+        </div>
+
+        <!-- Uses Cane / Walker -->
+
+        <div class="mobility-option" data-selected="false" role="checkbox" aria-checked="false" tabindex="0">
+          <div class="flex items-center gap-4">
+            <div class="mobility-icon">
+              <span class="material-symbols-outlined">blind</span>
+            </div>
+
+            <div>
+              <p class="mobility-title">Uses Cane / Walker</p>
+              <p class="mobility-desc">
+                Requires Level Surfaces
+              </p>
+            </div>
+          </div>
+
+          <div class="check-indicator">
+            <span class="material-symbols-outlined">check</span>
+          </div>
+        </div>
+
+        <!-- Visual Impairment -->
+
+        <div class="mobility-option" data-selected="false" role="checkbox" aria-checked="false" tabindex="0">
+          <div class="flex items-center gap-4">
+            <div class="mobility-icon">
+              <span class="material-symbols-outlined">visibility_off</span>
+            </div>
+
+            <div>
+              <p class="mobility-title">Visual Impairment</p>
+              <p class="mobility-desc">
+                Voice Guidance &amp; Tactile Paving
+              </p>
+            </div>
+          </div>
+
+          <div class="check-indicator">
+            <span class="material-symbols-outlined">check</span>
+          </div>
+        </div>
+
+        <!-- Limited Mobility -->
+
+        <div class="mobility-option" data-selected="false" role="checkbox" aria-checked="false" tabindex="0">
+          <div class="flex items-center gap-4">
+            <div class="mobility-icon">
+              <span class="material-symbols-outlined">elderly</span>
+            </div>
+
+            <div>
+              <p class="mobility-title">Limited Mobility</p>
+              <p class="mobility-desc">
+                Low-Stair Routes
+              </p>
+            </div>
+          </div>
+
+          <div class="check-indicator">
+            <span class="material-symbols-outlined">check</span>
+          </div>
+        </div>
+
+        <!-- Other Specific Need -->
+
+        <div class="mobility-option" data-selected="false" role="checkbox" aria-checked="false" tabindex="0">
+          <div class="flex items-center gap-4">
+            <div class="mobility-icon">
+              <span class="material-symbols-outlined">add_circle</span>
+            </div>
+
+            <div>
+              <p class="mobility-title">Other Specific Need</p>
+              <p class="mobility-desc">
+                Custom ramp clearance &amp; sensory preferences
+              </p>
+            </div>
+          </div>
+
+          <div class="check-indicator">
+            <span class="material-symbols-outlined">check</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PREFERRED ROUTE & SETTINGS -->
+
+    <section id="settingsSection" class="space-y-3 scroll-mt-20">
+
+      <h2 class="section-title">
+        <span class="material-symbols-outlined">display_settings</span>
+        Preferred Route &amp; App Settings
+      </h2>
+
+      <div class="settings-card bg-white rounded-xl p-4 shadow-sm divide-y divide-gray-100">
+
+        <!-- Larger Text -->
+
+        <div class="pb-4">
+          <div class="setting-row">
+            <div class="flex items-center gap-3">
+              <div class="setting-icon">
+                <span class="material-symbols-outlined">format_size</span>
+              </div>
+
+              <div>
+                <p class="setting-name">
+                  Larger Text (Accessibility)
+                </p>
+                <p class="setting-description">
+                  Scales UI text for rapid street-level reading
+                </p>
+              </div>
+            </div>
+
+            <button class="toggle-control" data-setting="largerText" role="switch" aria-label="Larger Text" aria-checked="true" type="button">
+              <span></span>
+            </button>
+          </div>
+
+          <div class="bg-surfaceLow rounded-lg p-3 mt-2">
+            <p class="text-[11px] text-primary uppercase font-semibold">
+              Preview Scaled Text:
+            </p>
+
+            <p class="text-base font-semibold mt-1">
+              MRT-3 Guadalupe Elev. Operational
+            </p>
+          </div>
+        </div>
+
+        <!-- High Contrast -->
+
+        <div class="setting-row">
+          <div class="flex items-center gap-3">
+            <div class="setting-icon">
+              <span class="material-symbols-outlined">contrast</span>
+            </div>
+
+            <div>
+              <p class="setting-name">High Contrast Mode</p>
+              <p class="setting-description">
+                Enhances road boundaries &amp; hazard alert vibrancy
+              </p>
+            </div>
+          </div>
+
+          <button class="toggle-control" data-setting="highContrast" role="switch" aria-label="High Contrast Mode" aria-checked="true" type="button">
+            <span></span>
+          </button>
+        </div>
+
+        <!-- Avoid Steep Ramps -->
+
+        <div class="setting-row">
+          <div class="flex items-center gap-3">
+            <div class="setting-icon">
+              <span class="material-symbols-outlined">trending_up</span>
+            </div>
+
+            <div>
+              <p class="setting-name">
+                Avoid Steep Ramps (&gt;8% slope)
+              </p>
+              <p class="setting-description">
+                Re-routes around elevated overpass footbridges
+              </p>
+            </div>
+          </div>
+
+          <button class="toggle-control" data-setting="avoidSteepRamps" role="switch" aria-label="Avoid Steep Ramps" aria-checked="true" type="button">
+            <span></span>
+          </button>
+        </div>
+
+        <!-- Audio Warnings -->
+
+        <div class="setting-row">
+          <div class="flex items-center gap-3">
+            <div class="setting-icon">
+              <span class="material-symbols-outlined">volume_up</span>
+            </div>
+
+            <div>
+              <p class="setting-name">Audio Cue Warnings</p>
+              <p class="setting-description">
+                Vocalize sidewalk blocks 50m prior to turn
+              </p>
+            </div>
+          </div>
+
+          <button class="toggle-control" data-setting="audioWarnings" role="switch" aria-label="Audio Cue Warnings" aria-checked="true" type="button">
+            <span></span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CITY COVERAGE -->
+
+    <section class="bg-surfaceHigh p-4 rounded-xl flex items-center gap-4">
+      <div class="w-12 h-12 rounded-lg bg-white text-primary flex items-center justify-center shrink-0">
+        <span class="material-symbols-outlined">pin_drop</span>
+      </div>
+
+      <div>
+        <p class="text-sm font-semibold">
+          Metropolitan Manila Engine
+        </p>
+
+        <p class="text-xs text-muted mt-1">
+          Route coverage for Quezon City, Makati, Pasig &amp; Manila
+        </p>
+      </div>
+    </section>
+
+    <!-- SAVE PREFERENCES -->
+
+    <section class="space-y-3">
+      <button
+        id="savePreferencesBtn"
+        type="button"
+        class="w-full h-12 bg-primaryContainer text-white rounded-lg font-semibold flex items-center justify-center gap-2 shadow-md hover:bg-primary transition"
+      >
+        <span class="material-symbols-outlined">save</span>
+        Save Preferences
+      </button>
+
+      <p class="text-center text-xs text-muted">
+        Your selected preferences will be saved on this device.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- SAVE CONFIRMATION -->
+
+  <div
+    id="toastIndicator"
+    role="status"
+    aria-live="polite"
+    class="fixed bottom-24 left-1/2 w-[92%] max-w-md z-50 bg-[#1e3246] text-white rounded-xl p-4 shadow-xl"
+  >
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-[#a9c7ff]">
+        check_circle
+      </span>
+
+      <div>
+        <p class="font-semibold text-sm">
+          Preferences Saved
+        </p>
+
+        <p class="text-xs text-gray-300 mt-1">
+          Your accessibility settings have been updated.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAVIGATION -->
+
+  <nav class="fixed bottom-0 left-0 w-full bg-surface/95 backdrop-blur-xl shadow-lg z-40">
+    <div class="h-20 flex items-center justify-around px-2">
+
+      <a href="/pages/dashboard.html" class="nav-link" data-path="dashboard">
+        <div class="nav-icon">
+          <span class="material-symbols-outlined">dashboard</span>
+        </div>
+        Home
+      </a>
+
+      <a href="/pages/map.html" class="nav-link" data-path="spatial-map">
+        <div class="nav-icon">
+          <span class="material-symbols-outlined">explore</span>
+        </div>
+        Map
+      </a>
+
+      <a href="/pages/report.html" class="nav-link" data-path="hazard-reports">
+        <div class="nav-icon">
+          <span class="material-symbols-outlined">security</span>
+        </div>
+        Reports
+      </a>
+
+      <a href="/pages/preferences.html" class="nav-link active" data-path="user-profile" aria-current="page">
+        <div class="nav-icon">
+          <span class="material-symbols-outlined">account_circle</span>
+        </div>
+        More
+      </a>
+
+    </div>
+  </nav>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+    // Load saved preferences
+    let preferences = {};
+
+    try {
+      preferences = JSON.parse(
+        localStorage.getItem("biyahexpressPreferences") || "{}"
+      );
+    } catch (error) {
+      preferences = {};
+    }
+
+    // Mobility selection
+    const mobilityCards = document.querySelectorAll(".mobility-option");
+
+    function toggleMobility(card) {
+      const selected = card.getAttribute("data-selected") === "true";
+      const newState = !selected;
+
+      card.setAttribute("data-selected", String(newState));
+      card.setAttribute("aria-checked", String(newState));
+    }
+
+    mobilityCards.forEach((card, index) => {
+      const stored = preferences.mobilityNeeds;
+
+      if (Array.isArray(stored)) {
+        const selected = stored.includes(index);
+        card.setAttribute("data-selected", String(selected));
+        card.setAttribute("aria-checked", String(selected));
+      }
+
+      card.addEventListener("click", () => toggleMobility(card));
+
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          toggleMobility(card);
+        }
+      });
+    });
+
+    // Switches
+    const toggles = document.querySelectorAll(".toggle-control");
+
+    toggles.forEach((toggle) => {
+      const key = toggle.dataset.setting;
+
+      if (typeof preferences[key] === "boolean") {
+        toggle.setAttribute("aria-checked", String(preferences[key]));
+      }
+
+      toggle.addEventListener("click", () => {
+        const current = toggle.getAttribute("aria-checked") === "true";
+
+        toggle.setAttribute("aria-checked", String(!current));
+        applyDisplaySettings();
+      });
+    });
+
+    function getSetting(name) {
+      const button = document.querySelector(
+        '[data-setting="' + name + '"]'
+      );
+
+      return button?.getAttribute("aria-checked") === "true";
+    }
+
+    function applyDisplaySettings() {
+      document.body.classList.toggle(
+        "large-text",
+        getSetting("largerText")
+      );
+
+      document.body.classList.toggle(
+        "high-contrast",
+        getSetting("highContrast")
+      );
+    }
+
+    applyDisplaySettings();
+
+    // Save preferences
+    const saveBtn = document.getElementById("savePreferencesBtn");
+    const toast = document.getElementById("toastIndicator");
+
+    let toastTimeout;
+
+    saveBtn.addEventListener("click", () => {
+      const selectedNeeds = [];
+
+      mobilityCards.forEach((card, index) => {
+        if (card.getAttribute("data-selected") === "true") {
+          selectedNeeds.push(index);
+        }
+      });
+
+      const data = {
+        mobilityNeeds: selectedNeeds,
+        largerText: getSetting("largerText"),
+        highContrast: getSetting("highContrast"),
+        avoidSteepRamps: getSetting("avoidSteepRamps"),
+        audioWarnings: getSetting("audioWarnings")
+      };
+
+      try {
+        localStorage.setItem(
+          "biyahexpressPreferences",
+          JSON.stringify(data)
+        );
+
+        toast.classList.add("show");
+        clearTimeout(toastTimeout);
+
+        toastTimeout = setTimeout(() => {
+          toast.classList.remove("show");
+        }, 3500);
+      } catch (error) {
+        console.error("Could not save preferences:", error);
+        alert("Unable to save preferences on this device.");
+      }
+    });
+  </script>
+
+  <script type="module" src="/src/navigation.js"></script>
+
+</body>
+</html>
