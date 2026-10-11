@@ -1,157 +1,124 @@
 
 /*
   BiyahExpress Navigation
-  Main page: Accessibility Map
+  Main page: Map
 
-  Pages:
-  - Map
-  - Reports
-  - Settings
-  - More / Profile
-
-  Preserves existing HTML links and design.
+  This script repairs navigation links without
+  changing the HTML design or header.
 */
-
-const current = window.location.pathname
-  .split("/")
-  .pop()
-  .replace(".html", "");
 
 const routes = {
-  welcome: "/pages/welcome.html",
-  map: "/pages/map.html",
-  report: "/pages/report.html",
-  settings: "/pages/settings.html",
-  preferences: "/pages/preferences.html",
-  planner: "/pages/planner.html",
-  route: "/pages/route.html",
-  confirmation: "/pages/confirmation.html",
-  heatmap: "/pages/heatmap.html",
-  analytics: "/pages/analytics.html"
+  "spatial-map": "/pages/map.html",
+  "hazard-reports": "/pages/report.html",
+  "settings": "/pages/settings.html",
+  "user-profile": "/pages/preferences.html",
+  "dashboard": "/pages/map.html"
 };
 
-function go(page) {
-  if (routes[page]) {
-    window.location.href = routes[page];
-  }
-}
+// Correct navigation links that use data-path.
+document.querySelectorAll("nav a[data-path]").forEach(link => {
+  const destination = routes[link.dataset.path];
 
-/*
-  Fix navigation links with href="#".
-  Existing valid links are left untouched.
-*/
-
-const navigationPaths = {
-  "spatial-map": "map",
-  "hazard-reports": "report",
-  "settings": "settings",
-  "user-profile": "preferences",
-  "dashboard": "map"
-};
-
-document.querySelectorAll("nav a").forEach(link => {
-  const path = link.dataset.path;
-
-  if (navigationPaths[path]) {
-    link.href = routes[navigationPaths[path]];
+  if (destination) {
+    link.setAttribute("href", destination);
   }
 });
 
-/*
-  Handle prototype action buttons.
-*/
-
+// Handle navigation clicks, including old Stitch links.
 document.addEventListener("click", event => {
   const target = event.target.closest("a, button");
 
   if (!target) return;
+
+  const navLink = target.closest("nav a");
+
+  if (navLink) {
+    const path = navLink.dataset.path;
+
+    let destination = routes[path];
+
+    // Fallback for links without data-path
+    if (!destination) {
+      const label = navLink.textContent.trim().toLowerCase();
+
+      if (label.includes("settings")) {
+        destination = "/pages/settings.html";
+      } else if (label.includes("more")) {
+        destination = "/pages/preferences.html";
+      } else if (label.includes("reports")) {
+        destination = "/pages/report.html";
+      } else if (label.includes("map")) {
+        destination = "/pages/map.html";
+      }
+    }
+
+    if (destination) {
+      event.preventDefault();
+      window.location.assign(destination);
+      return;
+    }
+  }
+
+  // Leave all other real links alone.
+  if (target.tagName === "A" &&
+      target.getAttribute("href") !== "#") {
+    return;
+  }
+
+  const current = window.location.pathname
+    .split("/")
+    .pop()
+    .replace(".html", "");
 
   const text = (target.textContent || "")
     .replace(/\s+/g, " ")
     .trim()
     .toLowerCase();
 
-  // Allow existing real links to navigate normally.
-  if (target.tagName === "A") {
-    const href = target.getAttribute("href");
-
-    if (href && href !== "#") {
-      return;
-    }
-  }
-
   let destination = null;
 
-  // Login goes to Map.
   if (
     current === "welcome" &&
     /log in|create account|continue as guest/.test(text)
   ) {
-    destination = "map";
-  }
-
-  // Route planner.
-  else if (
+    destination = "/pages/map.html";
+  } else if (
     current === "planner" &&
     /view routes|start navigation/.test(text)
   ) {
-    destination = "route";
+    destination = "/pages/route.html";
+  } else if (/submit hazard report/.test(text)) {
+    destination = "/pages/confirmation.html";
+  } else if (/view report status/.test(text)) {
+    destination = "/pages/confirmation.html";
+  } else if (/analytical breakdown/.test(text)) {
+    destination = "/pages/analytics.html";
+  } else if (/report hazard at current pin/.test(text)) {
+    destination = "/pages/report.html";
+  } else if (/navigate here/.test(text)) {
+    destination = "/pages/planner.html";
   }
 
-  // Reporting.
-  else if (/submit hazard report/.test(text)) {
-    destination = "confirmation";
-  }
-
-  else if (/view report status/.test(text)) {
-    destination = "confirmation";
-  }
-
-  else if (/analytical breakdown/.test(text)) {
-    destination = "analytics";
-  }
-
-  else if (/report hazard at current pin/.test(text)) {
-    destination = "report";
-  }
-
-  else if (/navigate here/.test(text)) {
-    destination = "planner";
-  }
-
-  // Back arrows.
-  else if (
+  if (
     target.tagName === "BUTTON" &&
-    /arrow_back/.test(text)
+    text.includes("arrow_back")
   ) {
     const backRoutes = {
-      planner: "map",
-      route: "planner",
-      report: "map",
-      settings: "map",
-      preferences: "map",
-      heatmap: "map",
-      analytics: "map",
-      confirmation: "report"
+      planner: "/pages/map.html",
+      route: "/pages/planner.html",
+      report: "/pages/map.html",
+      settings: "/pages/map.html",
+      preferences: "/pages/map.html",
+      heatmap: "/pages/map.html",
+      analytics: "/pages/map.html",
+      confirmation: "/pages/report.html"
     };
 
-    destination = backRoutes[current] || "map";
-  }
-
-  // Old Stitch navigation links.
-  else if (
-    target.tagName === "A" &&
-    target.getAttribute("href") === "#"
-  ) {
-    const path = target.dataset.path;
-
-    if (navigationPaths[path]) {
-      destination = navigationPaths[path];
-    }
+    destination = backRoutes[current] || "/pages/map.html";
   }
 
   if (destination) {
     event.preventDefault();
-    go(destination);
+    window.location.assign(destination);
   }
 });
